@@ -6,7 +6,7 @@ import java.util.List;
 import junit.framework.TestCase;
 import model.Stationery;
 
-public class StaDaoTest extends TestCase {
+public class QueryDaoTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -19,7 +19,7 @@ public class StaDaoTest extends TestCase {
 	public void testQuery() throws Exception {
 		//fail("Not yet implemented");
 		List<Stationery> sts = new ArrayList<>();
-		StaDao sd = new StaDao();
+		QueryDao sd = new QueryDao();
 		sts = sd.query();
 		for(int i = 0; i < sts.size(); i++ ) {
 			System.out.println(sts.get(i).getSt_name().toString());

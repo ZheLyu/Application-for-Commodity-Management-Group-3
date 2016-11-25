@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.*;
 import model.Stationery;
 import myDB.DButil;
-public class StaDao {
+public class QueryDao {
 	
 	public List<Stationery> query() throws Exception {
 		List<Stationery> result = new ArrayList<Stationery>();
