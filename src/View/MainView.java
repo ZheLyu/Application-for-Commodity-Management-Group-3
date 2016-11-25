@@ -122,8 +122,16 @@ public class MainView extends JFrame {
 		btnNewButton_3.setBounds(0, 446, 121, 56);
 		contentPane.add(btnNewButton_3);
 		
+<<<<<<< HEAD
 		
+=======
+		JLabel lblNewLabel_1 = new JLabel("V 1.0.00");
+>>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
 		lblNewLabel_1.setBounds(542, 84, 81, 18);
 		contentPane.add(lblNewLabel_1);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
