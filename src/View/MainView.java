@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 
 public class MainView extends JFrame {
+	JLabel lblNewLabel_1 = new JLabel("V 1.0.01");
 
 	private JPanel contentPane;
 
@@ -39,6 +40,7 @@ public class MainView extends JFrame {
 	 * Create the frame.
 	 */
 	public MainView() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 900, 600);
 		contentPane = new JPanel();
@@ -120,7 +122,7 @@ public class MainView extends JFrame {
 		btnNewButton_3.setBounds(0, 446, 121, 56);
 		contentPane.add(btnNewButton_3);
 		
-		JLabel lblNewLabel_1 = new JLabel("V 1.0.00");
+		
 		lblNewLabel_1.setBounds(542, 84, 81, 18);
 		contentPane.add(lblNewLabel_1);
 	}
