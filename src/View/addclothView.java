@@ -44,7 +44,7 @@ public class addclothView extends JFrame {
 	 * Create the frame.
 	 */
 	public addclothView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 650,500);
 		contentPane = new JPanel();
 		contentPane.setToolTipText("Size");
@@ -84,7 +84,7 @@ public class addclothView extends JFrame {
 
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				System.exit(2);
 			}
 		});
 		
