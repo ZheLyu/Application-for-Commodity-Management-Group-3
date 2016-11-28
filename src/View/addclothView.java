@@ -19,6 +19,10 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.DefaultComboBoxModel;
 
+
+
+import Control.QueryTableController;
+
 public class addclothView extends JFrame {
 
 	private JPanel contentPane;
@@ -108,13 +112,26 @@ public class addclothView extends JFrame {
 		btnNewButton.setBounds(89, 344, 113, 27);
 		contentPane.add(btnNewButton);
 		
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				QueryTableController q=new QueryTableController();
+				try {
+					q.process1();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(367, 344, 113, 27);
 		contentPane.add(btnCancel);
 
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(2);
+				System.exit(0);
 			}
 		});
 		

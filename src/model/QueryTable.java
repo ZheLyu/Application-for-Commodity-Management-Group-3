@@ -70,6 +70,15 @@ public class QueryTable {
 		
 	}
 	
+//	public List<Map<String, Object>> query(Integer id) {
+//		Connection conn = DButil.getConnection();
+//		StringBuilder sb = new StringBuilder();
+//		sb = 
+//		
+//		return list;
+//		
+//	}
+	
 	/**
 	 * Query the id, st_name, price, number, supplier of all stationery
 	 * @return
@@ -101,6 +110,157 @@ public class QueryTable {
 
 	}
 	
+	/**
+	 * 
+	 * @return idBook, title, price, number, supplier of books
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query2() throws Exception {
+		
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		//sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+		sb.append("select idBook, title, price, number, name from book, merchandise, supplier");
+		sb.append(" where idBook = id and supplier_id = idSupplier");
+		//sb.append("where idStationery = id and supplier_id = idSupplier");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+		
+	}
+	/**
+	 * 
+	 * @return idCloth, type, price, number, supplier name of all cloth
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query3() throws Exception {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		//sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
+		sb.append("select distinct idCloth, type, price, number, name from cloth, merchandise, supplier ");
+		//sb.append("select idBook, title, price, number, name from book, merchandise, supplier");
+
+		sb.append(" where idCloth = id and supplier_id = idSupplier");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		
+		return list;
+	}
+	/**
+	 * Query stationery by st_name
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query4(String name) throws Exception {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+		sb.append(" where st_name REGEXP ? and idStationery = id and supplier_id = idSupplier");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setString(1,   name );
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+		
+	}
+	/**
+	 * Query cloth by type
+	 * @param type
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query5(String type) throws Exception {
+		
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append("select distinct idCloth, type, price, number, name from cloth, merchandise, supplier ");
+		//sb.append("select idBook, title, price, number, name from book, merchandise, supplier");
+
+		sb.append(" where type REGEXP ? and idCloth = id and supplier_id = idSupplier");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+		//sb.append(" where st_name REGEXP ? and idStationery = id and supplier_id = idSupplier");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setString(1,   type );
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+	}
+	
+	
+	/**
+	 * Query stationery by id
+	 * @param Stringid
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query6(String Stringid) throws Exception {
+		int id = Integer.parseInt(Stringid);
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select * from ");
+		sb.append("(select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+		sb.append(" where  idStationery = id and supplier_id = idSupplier ) AS T ");
+		sb.append(" where T.idStationery = ? ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1,   id );
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+		
+	}
+	
+	/**
+	 * query cloth by id
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query7(int id) throws Exception {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select * from ");
+		sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
+		sb.append(" where T.idCloth = ? ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1,   id );
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+		
+	}
+	
+	public List<Map<String, Object>> query8(int id) throws Exception {
+		
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select * from ");
+		sb.append(" (select idBook, isbn, title, price, number, name from book, merchandise, supplier");
+		sb.append(" where idBook = id and supplier_id = idSupplier) AS T ");
+		sb.append(" where T.idBook = ? ");
+		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
+//		sb.append(" where T.idCloth = ? ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1,   id );
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+	}
 
 	
 }
