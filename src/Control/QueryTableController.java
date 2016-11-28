@@ -5,9 +5,11 @@ import java.util.Map;
 
 import model.QueryTable;
 
+
 import java.sql.SQLException;
 
 import View.LoginView;
+
 
 public class QueryTableController {
 	
@@ -126,7 +128,7 @@ public class QueryTableController {
 	 */
 	public void process4() throws Exception {
 		
-		m.query4(name);
+	   m.query4(name);
 	}
 	
 	/**
@@ -138,12 +140,15 @@ public class QueryTableController {
 	public void process5() throws Exception {
 		m.query5(type);
 	}
+
 	/**
 	 * Query stationery by id
 	 * @throws Exception
 	 */
+
 	public void process6() throws Exception {
 		m.query6(id);
+		
 	}
 	
 	/**
