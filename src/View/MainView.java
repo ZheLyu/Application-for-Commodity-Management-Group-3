@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.Model;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -19,6 +22,7 @@ public class MainView extends JFrame {
 	JLabel lblNewLabel_1 = new JLabel("V 1.0.02");
 
 	private JPanel contentPane;
+	Model model;
 
 	/**
 	 * Launch the application.
@@ -27,7 +31,8 @@ public class MainView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainView frame = new MainView();
+					Model m = new Model();
+					MainView frame = new MainView(m);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,8 +44,8 @@ public class MainView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainView() {
-		
+	public MainView(Model m) {
+		this.model = m;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 900, 600);
 		contentPane = new JPanel();
@@ -67,7 +72,7 @@ public class MainView extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedItem()=="cloth"){
-					addclothView addcloth= new addclothView();
+					addclothView addcloth= new addclothView(model);
 					addcloth.setVisible(true);}
 				if(comboBox.getSelectedItem()=="book"){
 						addBookView addBook= new addBookView();

@@ -8,6 +8,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Control.AddClothController;
+import model.Cloth;
+import model.Model;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -17,16 +22,20 @@ import javax.swing.DefaultComboBoxModel;
 public class addclothView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-
+	private JTextField textFieldClothName;
+	private JTextField textFieldClothId;
+	private JTextField textFieldNumber;
+	private JTextField textFieldPrice;
+	private JTextField textFieldSupplier;
+	private JTextField textFieldSupplierId;
+	private JComboBox comboBoxSize;
+	private JComboBox comboBoxcolor;
+	Model model;
+	
 	/**
 	 * Launch the application.
 	 */
+	/**
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,12 +47,14 @@ public class addclothView extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
+	
 	/**
 	 * Create the frame.
 	 */
-	public addclothView() {
+	public addclothView(Model m) {
+		this.model = m;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 650,500);
 		contentPane = new JPanel();
@@ -52,10 +63,10 @@ public class addclothView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(153, 74, 167, 24);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldClothName = new JTextField();
+		textFieldClothName.setBounds(153, 74, 167, 24);
+		contentPane.add(textFieldClothName);
+		textFieldClothName.setColumns(10);
 		
 		JLabel lblAddCloth = new JLabel("Add  Cloth");
 		lblAddCloth.setBounds(268, 13, 108, 18);
@@ -69,12 +80,31 @@ public class addclothView extends JFrame {
 		lblNumber.setBounds(50, 136, 72, 18);
 		contentPane.add(lblNumber);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(153, 133, 167, 24);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldClothId = new JTextField();
+		textFieldClothId.setBounds(153, 133, 167, 24);
+		contentPane.add(textFieldClothId);
+		textFieldClothId.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Add");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String clothName =  textFieldClothName.getText();
+				int clothId = Integer.parseInt(textFieldClothId.getText());
+				int number = Integer.parseInt(textFieldNumber.getText());
+				int price = Integer.parseInt(textFieldPrice.getText());
+				String supplier = textFieldSupplier.getText();
+				int supplierId = Integer.parseInt(textFieldSupplierId.getText()) ;
+				String color = null;
+				String size = null;
+
+				try {
+					new AddClothController(model.getCloth(), addclothView.this).process(color, size, clothName, clothId);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		btnNewButton.setBounds(89, 344, 113, 27);
 		contentPane.add(btnNewButton);
 		
@@ -92,10 +122,10 @@ public class addclothView extends JFrame {
 		lblNumber_1.setBounds(50, 201, 72, 18);
 		contentPane.add(lblNumber_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(153, 198, 167, 24);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldNumber = new JTextField();
+		textFieldNumber.setBounds(153, 198, 167, 24);
+		contentPane.add(textFieldNumber);
+		textFieldNumber.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setBounds(50, 293, 25, -7);
@@ -105,16 +135,16 @@ public class addclothView extends JFrame {
 		lblPrice.setBounds(50, 262, 72, 18);
 		contentPane.add(lblPrice);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(153, 259, 167, 24);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textFieldPrice = new JTextField();
+		textFieldPrice.setBounds(153, 259, 167, 24);
+		contentPane.add(textFieldPrice);
+		textFieldPrice.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setToolTipText("Size");
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"XXSmall", "XSmall", "Small", "Medium", "Large", "Xlarge", "XXlarge", "XXXLarge"}));
-		comboBox.setBounds(488, 74, 80, 24);
-		contentPane.add(comboBox);
+		JComboBox comboBoxSize = new JComboBox();
+		comboBoxSize.setToolTipText("Size");
+		comboBoxSize.setModel(new DefaultComboBoxModel(new String[] {"XXSmall", "XSmall", "Small", "Medium", "Large", "Xlarge", "XXlarge", "XXXLarge"}));
+		comboBoxSize.setBounds(488, 74, 80, 24);
+		contentPane.add(comboBoxSize);
 		
 		JLabel lblSize = new JLabel("Size");
 		lblSize.setBounds(386, 77, 51, 18);
@@ -124,28 +154,33 @@ public class addclothView extends JFrame {
 		lblColor.setBounds(386, 136, 72, 18);
 		contentPane.add(lblColor);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"WHITE", "YELLOW", "RED", "GRAY", "GREEN", "BLACK", "BLUE", "OTHERS"}));
-		comboBox_1.setBounds(488, 133, 80, 24);
-		contentPane.add(comboBox_1);
+		JComboBox comboBoxcolor = new JComboBox();
+		comboBoxcolor.setModel(new DefaultComboBoxModel(new String[] {"WHITE", "YELLOW", "RED", "GRAY", "GREEN", "BLACK", "BLUE", "OTHERS"}));
+		comboBoxcolor.setBounds(488, 133, 80, 24);
+		contentPane.add(comboBoxcolor);
 		
 		JLabel lblSupplier = new JLabel("Supplier");
 		lblSupplier.setBounds(367, 201, 72, 18);
 		contentPane.add(lblSupplier);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(453, 198, 129, 24);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textFieldSupplier = new JTextField();
+		textFieldSupplier.setBounds(453, 198, 129, 24);
+		contentPane.add(textFieldSupplier);
+		textFieldSupplier.setColumns(10);
 		
 		JLabel lblSupplierId = new JLabel("Supplier ID");
 		lblSupplierId.setBounds(367, 268, 103, 18);
 		contentPane.add(lblSupplierId);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(453, 265, 129, 24);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		textFieldSupplierId = new JTextField();
+		textFieldSupplierId.setBounds(453, 265, 129, 24);
+		contentPane.add(textFieldSupplierId);
+		textFieldSupplierId.setColumns(10);
 		this.setVisible(true);
+	}
+
+	public void showResult() {
+		// TODO Auto-generated method stub
+		
 	}
 }
