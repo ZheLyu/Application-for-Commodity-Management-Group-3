@@ -1,7 +1,11 @@
 package Control;
 
 import model.QueryTable;
+<<<<<<< HEAD
 import View.LoginView;
+=======
+
+>>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
 public class QueryTableController {
 	
 	private QueryTable m = new QueryTable();

@@ -119,5 +119,8 @@ public class LoginView extends JFrame {
 		});
 		
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
 }

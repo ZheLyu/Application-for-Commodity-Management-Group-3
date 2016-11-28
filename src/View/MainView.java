@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 
 public class MainView extends JFrame {
-	JLabel lblNewLabel_1 = new JLabel("V 1.0.03");
+	JLabel lblNewLabel_1 = new JLabel("V 1.0.04");
 
 	private JPanel contentPane;
 
