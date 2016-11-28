@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.*;
 
 import myDB.DButil;
@@ -221,11 +219,12 @@ public class QueryTable {
 	
 	/**
 	 * query cloth by id
-	 * @param id
+	 * @param Stringid
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Map<String, Object>> query7(int id) throws Exception {
+	public List<Map<String, Object>> query7(String Stringid) throws Exception {
+		int id = Integer.parseInt(Stringid);
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from ");
@@ -241,9 +240,14 @@ public class QueryTable {
 		return list;
 		
 	}
-	
-	public List<Map<String, Object>> query8(int id) throws Exception {
-		
+	/**
+	 * query book by id
+	 * @param Stringid
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query8(String Stringid) throws Exception {
+		int id = Integer.parseInt(Stringid);
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from ");
@@ -260,6 +264,80 @@ public class QueryTable {
 		
 		List<Map<String, Object>> list = convertList(rs);
 		return list;
+	}
+	/**
+	 * query idStationery, st_name , price, number of 
+	 * stationery by id and name
+	 * @param StringId
+	 * @param name
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Map<String, Object>> query9(String StringId, String name) throws SQLException {
+		int id = Integer.parseInt(StringId);
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append("select idStationery, st_name , price, number ");
+		sb.append(" from stationery, merchandise");
+		sb.append(" where idStationery = ? and st_name REGEXP ? and idStationery = merchandise.id ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1, id);
+		ptmt.setString(2, name);
+		ResultSet rs = ptmt.executeQuery();
+		List<Map<String, Object>> list = convertList(rs);
+		
+		return list;
+	}
+	
+	/**
+	 * idCloth, type, size, color, price, number
+	 * by id and size
+	 * @param Stringid
+	 * @param size
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query10(String Stringid, String size) throws Exception {
+		int id = Integer.parseInt(Stringid);
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("select idCloth, type, size, color, price, number ");
+		sb.append(" from cloth, merchandise");
+		sb.append(" where idCloth = ? and size like ? and idCloth = merchandise.id");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1,   id );
+		ptmt.setString(2, size + "%");
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+		
+	}
+	
+	/**
+	 * query idBook, genre, title, price, number
+	 * by genre and title
+	 * @param StringId
+	 * @param title
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Map<String, Object>> query11(String genre, String title) throws SQLException {
+		
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append("select idBook, genre, title, price, number from ");
+		sb.append(" book, merchandise ");
+		sb.append(" where genre like ? and title REGEXP ? ");
+		sb.append(" and idBook = merchandise.id");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setString(1, genre);
+		ptmt.setString(2, title);
+		ResultSet rs = ptmt.executeQuery();
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+		
 	}
 
 	

@@ -1,11 +1,14 @@
 package Control;
 
-import model.QueryTable;
-<<<<<<< HEAD
-import View.LoginView;
-=======
+import java.util.List;
+import java.util.Map;
 
->>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
+import model.QueryTable;
+
+import java.sql.SQLException;
+
+import View.LoginView;
+
 public class QueryTableController {
 	
 	private QueryTable m = new QueryTable();
@@ -13,7 +16,34 @@ public class QueryTableController {
 	private String name;
 	private String id;
 	private String type;
+	private String genre;
+	private String title;
+	private String size;
 	
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -57,6 +87,10 @@ public class QueryTableController {
 	}
 
 	
+	public QueryTableController() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * return id, st_name, price, number, supplier of all stationery
 	 * @throws Exception
@@ -80,7 +114,9 @@ public class QueryTableController {
 	 * @throws Exception
 	 */
 	public void process3() throws Exception {
-		m.query3();
+		List<Map<String, Object>> list = m.query3();
+	    list.toString();
+	    
 	}
 	
 	/**
@@ -102,9 +138,55 @@ public class QueryTableController {
 	public void process5() throws Exception {
 		m.query5(type);
 	}
-	
-	public void process6() {
+	/**
+	 * Query stationery by id
+	 * @throws Exception
+	 */
+	public void process6() throws Exception {
 		m.query6(id);
+	}
+	
+	/**
+	 * query cloth by id
+	 * @return
+	 * @throws Exception 
+	 */
+	public void process7() throws Exception {
+		m.query7(id);
+	}
+	/**
+	 * query book by id
+	 * @throws Exception
+	 */
+	public void process8() throws Exception {
+		m.query8(id);
+	}
+	/**
+	 * query idStationery, st_name , price, number of 
+	 * stationery by id and name
+	 * @throws SQLException
+	 */
+	public void process9() throws SQLException {
+		m.query9(id, name);
+	}
+	
+	/**
+	 * idCloth, type, size, color, price, number
+	 * by id and size
+	 * @throws Exception
+	 */
+	public void process10() throws Exception {
+		m.query10(id, size);
+	}
+	
+	
+	/**
+	 * query idBook, genre, title, price, number
+	 * by genre and title
+	 * @throws SQLException
+	 */
+	public void process11() throws SQLException {
+		m.query11(genre, title);
 	}
 
 }

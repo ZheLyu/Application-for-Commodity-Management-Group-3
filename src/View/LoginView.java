@@ -13,9 +13,15 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 
+
+
 import model.LoginModel;
+
 import javax.swing.JTextArea;
+
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginView extends JFrame {
 
@@ -95,6 +101,7 @@ public class LoginView extends JFrame {
 					
 					}
 					else{
+					
 						textArea.setText("Wrong user name or password, please try again!");
 						
 					}
@@ -119,8 +126,4 @@ public class LoginView extends JFrame {
 		});
 		
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
 }
