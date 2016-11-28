@@ -22,6 +22,7 @@ public class QueryTableTest extends TestCase {
 		//List<<Map<String, Object>> list = new ArrayList<>();
 		QueryTable sd = new QueryTable();
 		List<Map<String, Object>> list = sd.query();
+		System.out.println(list.size());
 		for(int i = 0; i < list.size(); i++) {
 			Map<String, Object> map = list.get(i);
 			System.out.print(map.get("idStationery") + "\t");

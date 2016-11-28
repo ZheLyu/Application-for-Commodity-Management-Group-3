@@ -1,7 +1,6 @@
 package Control;
 
 import model.QueryTable;
-import java.util.*;
 
 public class QueryTableController {
 	/**
