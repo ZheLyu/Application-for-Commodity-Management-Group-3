@@ -1,11 +1,13 @@
 package Control;
 
-import model.QueryTable;
-<<<<<<< HEAD
-import View.LoginView;
-=======
+import java.util.List;
+import java.util.Map;
 
->>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
+import model.QueryTable;
+import View.LoginView;
+
+
+
 public class QueryTableController {
 	
 	private QueryTable m = new QueryTable();
@@ -57,6 +59,10 @@ public class QueryTableController {
 	}
 
 	
+	public QueryTableController() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * return id, st_name, price, number, supplier of all stationery
 	 * @throws Exception
@@ -80,7 +86,9 @@ public class QueryTableController {
 	 * @throws Exception
 	 */
 	public void process3() throws Exception {
-		m.query3();
+		List<Map<String, Object>> list = m.query3();
+	    list.toString();
+	    
 	}
 	
 	/**
@@ -90,7 +98,7 @@ public class QueryTableController {
 	 */
 	public void process4() throws Exception {
 		
-		m.query4(name);
+	   m.query4(name);
 	}
 	
 	/**
@@ -103,8 +111,9 @@ public class QueryTableController {
 		m.query5(type);
 	}
 	
-	public void process6() {
+	public void process6() throws Exception {
 		m.query6(id);
+		
 	}
 
 }
