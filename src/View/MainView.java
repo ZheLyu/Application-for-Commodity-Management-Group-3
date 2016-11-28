@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
+import Control.QueryTableController;
+
 public class MainView extends JFrame {
 	JLabel lblNewLabel_1 = new JLabel("V 1.0.04");
 
@@ -23,7 +25,7 @@ public class MainView extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -34,7 +36,7 @@ public class MainView extends JFrame {
 				}
 			}
 		});
-	}*/
+	}
 
 	/**
 	 * Create the frame.
@@ -125,8 +127,55 @@ public class MainView extends JFrame {
 
 		lblNewLabel_1.setBounds(542, 84, 81, 18);
 		contentPane.add(lblNewLabel_1);
-	}
+		
+		JButton btnNewButton_4 = new JButton("Show All Book");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QueryTableController qu=new QueryTableController();
+				try {
+					qu.process2();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnNewButton_4.setBounds(369, 119, 240, 56);
+		contentPane.add(btnNewButton_4);
+		
+		JButton btnNewButton_5 = new JButton("Show All Cloth");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QueryTableController qu=new QueryTableController();
+				try {
+					qu.process3();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnNewButton_5.setBounds(369, 223, 240, 56);
+		contentPane.add(btnNewButton_5);
+		
+		JButton btnNewButton_6 = new JButton("Show All Stationery");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QueryTableController qu=new QueryTableController();
+				try {
+					qu.process1();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 
+	
+		btnNewButton_6.setBounds(369, 324, 240, 56);
+		contentPane.add(btnNewButton_6);
+	}
 }
 
 
