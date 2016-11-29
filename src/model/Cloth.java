@@ -1,15 +1,15 @@
 package model;
 
 public class Cloth {
-	private String cl_name;
+	private String type;
 	private Integer idCloth;
-	private  String type;
+	private  String size;
 	private  String color;
-	public String getCl_name() {
-		return cl_name;
+	public String getType() {
+		return type;
 	}
-	public void setCl_name(String cl_name) {
-		this.cl_name = cl_name;
+	public void setType(String type) {
+		this.type= type;
 	}
 	public Integer getIdCloth() {
 		return idCloth;
@@ -17,13 +17,13 @@ public class Cloth {
 	public void setIdCloth(Integer idCloth) {
 		this.idCloth = idCloth;
 	}
-	public String getType(String type){
-		return type;
+	public String getSize(){
+		return size;
 	}
 	public void setSize(String type){
-		this.type=type;
+		this.size=size;
 	}
-	public String getColor(String color){
+	public String getColor(){
 		return color;
 	}
 	public void setColor(String color){
@@ -32,6 +32,6 @@ public class Cloth {
 	
 	@Override
 	public String toString() {
-		return "Cloth [_name=" + cl_name + ", idCloth=" + idCloth + ", type="+ type + ",color= "+ color + "]";
+		return "Cloth [_name=" + type + ", idCloth=" + idCloth + ", size="+ size + ",color= "+ color + "]";
 	}
 }

@@ -26,7 +26,7 @@ public class AddClothController {
 		cloth.setIdCloth(IdCloth);
 		new ClothModify(cloth).addCloth();
 		new MerchandiseModify(m).addMerchandise();;
-		view.showResult();
+		//view.showResult();
 		
 
 		return true;
