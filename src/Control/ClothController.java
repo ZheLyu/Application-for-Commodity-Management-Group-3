@@ -28,10 +28,16 @@ public class ClothController {
 		m.setNumber(number);
 		new ClothModify(cloth).addCloth();
 		new MerchandiseModify(m).addMerchandise();;
-		view.showResult();
-		
+		view.showResult();		
 		return true;
 	}
 	
+	public Boolean process_update(){
+		return true;
+	}
+	
+	public Boolean  process_del(){
+		return true;
+	}
 
 }
