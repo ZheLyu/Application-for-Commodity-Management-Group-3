@@ -53,7 +53,8 @@ public class findStationeryView extends JFrame {
 		lblNewLabel.setBounds(203, 13, 143, 42);
 		contentPane.add(lblNewLabel);
 		
-		JTextArea textArea = new JTextArea();
+
+		final JTextArea textArea = new JTextArea();
 		textArea.setBounds(0, 185, 555, 232);
 		contentPane.add(textArea);
 		
@@ -83,7 +84,8 @@ public class findStationeryView extends JFrame {
 				qu.setName(textField_1.getText());
 			    if(textField.getText().isEmpty()){
 					try {
-						qu.process4();
+					   textArea.append(qu.process4());
+					   textArea.append("\n");
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -92,7 +94,10 @@ public class findStationeryView extends JFrame {
 				else if(textField_1.getText().isEmpty()){
 					try {
 						System.out.println("aa");
-						qu.process6();
+						
+						textArea.append(qu.process6());
+						textArea.append("\n");
+						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

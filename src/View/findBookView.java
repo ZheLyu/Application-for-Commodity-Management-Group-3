@@ -52,7 +52,7 @@ public class findBookView extends JFrame {
 		lblNewLabel.setBounds(203, 13, 143, 42);
 		contentPane.add(lblNewLabel);
 		
-		JTextArea textArea = new JTextArea();
+		final JTextArea textArea = new JTextArea();
 		textArea.setBounds(0, 185, 555, 232);
 		contentPane.add(textArea);
 		
@@ -82,7 +82,8 @@ public class findBookView extends JFrame {
 				qu.setName(textField_1.getText());
 			    if(textField.getText().isEmpty()){
 					try {
-						qu.process8();
+						textArea.append(qu.process8());
+						   textArea.append("\n");
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -90,14 +91,21 @@ public class findBookView extends JFrame {
 				}
 				else if(textField_1.getText().isEmpty()){
 					try {
-						System.out.println("aa");
-						qu.process8();
+						textArea.append(qu.process8());
+						   textArea.append("\n");
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
 				else {
+					try {
+						textArea.append(qu.process8());
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				   textArea.append("\n");
 					
 				}
 			}

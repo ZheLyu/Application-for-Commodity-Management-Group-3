@@ -10,11 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import Control.QueryTableController;
+import javax.swing.JScrollBar;
 
 public class findClothView extends JFrame {
 
@@ -53,9 +55,11 @@ public class findClothView extends JFrame {
 		lblNewLabel.setBounds(203, 13, 143, 42);
 		contentPane.add(lblNewLabel);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(0, 185, 555, 232);
+		final JTextArea textArea = new JTextArea();
+		textArea.setBounds(0, 185, 700, 232);
 		contentPane.add(textArea);
+		//JScrollPane Scroll = new JScrollPane();
+		//Scroll.setViewportView(textArea);
 		
 		JLabel lblNewLabel_1 = new JLabel("Cloth Id");
 		lblNewLabel_1.setBounds(44, 73, 72, 18);
@@ -83,7 +87,9 @@ public class findClothView extends JFrame {
 				qu.setName(textField_1.getText());
 			    if(textField.getText().isEmpty()){
 					try {
-						qu.process7();
+						textArea.append(qu.process7());
+						textArea.append("\n");
+						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -91,14 +97,21 @@ public class findClothView extends JFrame {
 				}
 				else if(textField_1.getText().isEmpty()){
 					try {
-						System.out.println("aa");
-						qu.process5();
+						textArea.append(qu.process7());
+						textArea.append("\n");
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
 				else{
+					try {
+						textArea.append(qu.process5());
+						textArea.append("\n");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
@@ -108,5 +121,9 @@ public class findClothView extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setBounds(428, 123, 113, 27);
 		contentPane.add(btnNewButton_1);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(0, 185, 21, 232);
+		contentPane.add(scrollBar);
 	}
 }

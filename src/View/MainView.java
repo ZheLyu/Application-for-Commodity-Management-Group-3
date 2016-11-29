@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import model.Model;
+
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -133,14 +133,17 @@ public class MainView extends JFrame {
 		JButton btnNewButton_4 = new JButton("Show All Book");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				QueryTableController qu=new QueryTableController();
-				try {
-					qu.process2();
+                try {
+					showAllBook show=new showAllBook();
+					show.setVisible(true);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+                
+                
+
+ 				
 			}
 		});
 		btnNewButton_4.setBounds(369, 119, 240, 56);
@@ -149,13 +152,15 @@ public class MainView extends JFrame {
 		JButton btnNewButton_5 = new JButton("Show All Cloth");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				QueryTableController qu=new QueryTableController();
-				try {
-					qu.process3();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				  try {
+						showAllCloth show=new showAllCloth();
+						show.setVisible(true);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				
+				
 			}
 		});
 		btnNewButton_5.setBounds(369, 223, 240, 56);
@@ -164,13 +169,13 @@ public class MainView extends JFrame {
 		JButton btnNewButton_6 = new JButton("Show All Stationery");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				QueryTableController qu=new QueryTableController();
-				try {
-					qu.process1();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				  try {
+						showAllStationery show=new showAllStationery();
+						show.setVisible(true);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 			}
 		});
 
