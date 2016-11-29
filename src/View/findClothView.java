@@ -2,6 +2,9 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import Control.QueryTableController;
 
 public class findClothView extends JFrame {
 
@@ -71,6 +76,32 @@ public class findClothView extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Search");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QueryTableController qu= new QueryTableController();
+				qu.setId(textField.getText());
+				qu.setName(textField_1.getText());
+			    if(textField.getText().isEmpty()){
+					try {
+						qu.process7();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else if(textField_1.getText().isEmpty()){
+					try {
+						System.out.println("aa");
+						qu.process5();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else{
+				}
+			}
+		});
 		btnNewButton.setBounds(428, 51, 113, 27);
 		contentPane.add(btnNewButton);
 		
