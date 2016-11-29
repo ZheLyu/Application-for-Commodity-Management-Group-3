@@ -24,7 +24,6 @@ public class MainView extends JFrame {
 	JLabel lblNewLabel_1 = new JLabel("V 1.0.05");
 
 	private JPanel contentPane;
-	Model model;
 
 	/**
 	 * Launch the application.
@@ -33,8 +32,7 @@ public class MainView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Model m = new Model();
-					MainView frame = new MainView(m);
+					MainView frame = new MainView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,8 +44,7 @@ public class MainView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainView(Model m) {
-		this.model = m;
+	public MainView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 900, 600);
 		contentPane = new JPanel();
@@ -74,7 +71,7 @@ public class MainView extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedItem()=="cloth"){
-					addclothView addcloth= new addclothView(model);
+					addclothView addcloth= new addclothView();
 					addcloth.setVisible(true);}
 				if(comboBox.getSelectedItem()=="book"){
 						addBookView addBook= new addBookView();

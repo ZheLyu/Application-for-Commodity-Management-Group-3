@@ -9,9 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Control.AddClothController;
-import model.Cloth;
-import model.Model;
+import Control.ClothController;
 
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -34,7 +32,6 @@ public class addclothView extends JFrame {
 	private JTextField textFieldSupplierId;
 	private JComboBox comboBoxSize;
 	private JComboBox comboBoxcolor;
-	Model model;
 	
 	/**
 	 * Launch the application.
@@ -57,8 +54,7 @@ public class addclothView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public addclothView(Model m) {
-		this.model = m;
+	public addclothView() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 650,500);
 		contentPane = new JPanel();
@@ -102,7 +98,7 @@ public class addclothView extends JFrame {
 				String size = null;
 
 				try {
-					new AddClothController(model.getCloth(), addclothView.this).process(color, size, clothName, clothId);
+					new ClothController(addclothView.this).process_add(color, size, clothName, clothId, supplierId, price, number);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -197,7 +193,7 @@ public class addclothView extends JFrame {
 	}
 
 	public void showResult() {
-		// TODO Auto-generated method stub
+		System.out.println("successful");
 		
 	}
 }
