@@ -18,9 +18,24 @@ public class MerchandiseModify {
 	 * @throws Exception
 	 */
 	public void addMerchandise() throws Exception{
+		
 		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" insert into merchandise");
+		sb.append(" (id,supplier_id,price,number)");
+		sb.append(" values(");
+		sb.append(" ?,?,?,?)");
+		System.out.println(sb);
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1, m.getIdMerchansidse());
+		ptmt.setInt(2, m.getIdFactory());
+		ptmt.setInt(3, m.getNumber());
+		ptmt.setFloat(4, m.getPrice());
+		ptmt.execute();
+		
+		/**Connection conn = DButil.getConnection();
 		String sql = ""+
-				" insert into Merchandise"+
+				" insert into merchandise"+
 				" id,supplier_id,price,number"+
 				" values("+
 				" ?,?,?,?)";
@@ -29,7 +44,7 @@ public class MerchandiseModify {
 		ptmt.setInt(2, m.getIdFactory());
 		ptmt.setInt(3, m.getNumber());
 		ptmt.setFloat(4, m.getPrice());
-		ptmt.execute();
+		ptmt.execute();*/
 		System.out.println("successfully add");
 	}
 	/**

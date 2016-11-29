@@ -25,16 +25,26 @@ public class ClothModify {
 	 */
 	public void addCloth() throws Exception{
 		Connection conn = DButil.getConnection();
-		String sql = ""+
-				" insert into Cloth"+
-				" type,size,color,idCloth"+
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(" insert into cloth");
+		sb.append(" (type,size,color,idCloth)");
+		sb.append(" values(");
+		sb.append(" ?,?,?,?)");
+		
+		/**String sql = ""+
+				" insert into cloth"+
+				" (type,size,color,idCloth)"+
 				" values("+
-				" ?,?,?,?)";
-		PreparedStatement ptmt = conn.prepareStatement(sql);
+				"?,?,?,?)";*/
+		
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1, c.getType());
-		ptmt.setString(2, c.getColor());
-		ptmt.setString(3, c.getSize());
+		System.out.println(c.getSize());
+		ptmt.setString(2, c.getSize());
+		ptmt.setString(3, c.getColor());
 		ptmt.setInt(4, c.getIdCloth());
+		System.out.println(sb); 
 		ptmt.execute();
 		System.out.println("successfully add");
 
@@ -46,7 +56,7 @@ public class ClothModify {
 	public void updateCloth() throws SQLException{
 		Connection conn = DButil.getConnection();
 		String sql = ""+
-				" update Cloth"+
+				" update mydb.Cloth"+
 				" set type=?,size=?,color=?,"+
 				" where idCloth=?";
 		PreparedStatement ptmt = conn.prepareStatement(sql);

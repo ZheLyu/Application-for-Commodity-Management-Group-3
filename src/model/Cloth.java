@@ -20,8 +20,8 @@ public class Cloth {
 	public String getSize(){
 		return size;
 	}
-	public void setSize(String type){
-		this.size=size;
+	public void setSize(String size){
+		this.size = size;
 	}
 	public String getColor(){
 		return color;
