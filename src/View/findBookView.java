@@ -2,6 +2,8 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import Control.QueryTableController;
 
 public class findBookView extends JFrame {
 
@@ -48,7 +52,7 @@ public class findBookView extends JFrame {
 		lblNewLabel.setBounds(203, 13, 143, 42);
 		contentPane.add(lblNewLabel);
 		
-		JTextArea textArea = new JTextArea();
+		final JTextArea textArea = new JTextArea();
 		textArea.setBounds(0, 185, 555, 232);
 		contentPane.add(textArea);
 		
@@ -71,7 +75,76 @@ public class findBookView extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Search");
-		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QueryTableController qu= new QueryTableController();
+				qu.setId(textField.getText());
+				qu.setName(textField_1.getText());
+			    if(textField.getText().isEmpty()){
+					try {
+						textArea.append(qu.process12());
+						   textArea.append("\n");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else if(textField_1.getText().isEmpty()){
+					try {
+						textArea.append(qu.process8());
+						   textArea.append("\n");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else {
+					try {
+						textArea.append(qu.process8());
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				   textArea.append("\n");
+					
+				}
+			}
+		});
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QueryTableController qu= new QueryTableController();
+				qu.setId(textField.getText());
+				qu.setName(textField_1.getText());
+			    if(textField.getText().isEmpty()){
+					try {
+						textArea.append(qu.process8());
+						   textArea.append("\n");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else if(textField_1.getText().isEmpty()){
+					try {
+						textArea.append(qu.process8());
+						   textArea.append("\n");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else {
+					try {
+						textArea.append(qu.process8());
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				   textArea.append("\n");
+					
+				}
+			}
+		});
 		btnNewButton.setBounds(428, 51, 113, 27);
 		contentPane.add(btnNewButton);
 		

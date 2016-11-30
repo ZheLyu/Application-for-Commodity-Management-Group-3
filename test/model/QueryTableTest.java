@@ -20,27 +20,37 @@ public class QueryTableTest extends TestCase {
 	}
 
 	public void testQuery() throws Exception {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		QueryTable sd = new QueryTable();
+		List<Map<String, Object>> list = sd.query1();
+		for(int i = 0; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			System.out.print(map.get("id") + "\t");
+			System.out.print(map.get("name") + "\t");
+			System.out.print(map.get("number") + "\t");
+			System.out.println();
+		}
+		
 	}
 	
 	public void testQuery1() throws Exception {
 		fail("Not yet implemented");
 		//List<<Map<String, Object>> list = new ArrayList<>();
 		QueryTable sd = new QueryTable();
-		List<Map<String, Object>> list = sd.query();
-		System.out.println(list.size());
-		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> map = list.get(i);
-			System.out.print(map.get("idStationery") + "\t");
-			System.out.print(map.get("st_name") + "\t");
-			System.out.print(map.get("price") + "\t");
-			System.out.print(map.get("number") + "\t");
-			
-			System.out.print(map.get("name") + "\t");
-			System.out.print(map.get("st_name"));
-			
-			System.out.println();
-		}
+		List<List<String>> list = sd.query();
+		System.out.println(list);
+//		for(int i = 0; i < list.size(); i++) {
+//			Map<String, Object> map = list.get(i);
+//			System.out.print(map.get("idStationery") + "\t");
+//			System.out.print(map.get("st_name") + "\t");
+//			System.out.print(map.get("price") + "\t");
+//			System.out.print(map.get("number") + "\t");
+//			
+//			System.out.print(map.get("name") + "\t");
+//			System.out.print(map.get("st_name"));
+//			
+//			System.out.println();
+//		}
 		
 //		for(int i = 0; i < sts.size(); i++ ) {
 //			System.out.println(sts.get(i).getIdStationery().toString() + sts.get(i).getSt_name().toString());
@@ -51,37 +61,39 @@ public class QueryTableTest extends TestCase {
 	public void testQuery2() throws Exception {
 		fail("Not yet implemented");
 		QueryTable sd = new QueryTable();
-		List<Map<String, Object>> list = sd.query2();
-		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> map = list.get(i);
-			System.out.print(map.get("idBook") + "\t");
-			System.out.print(map.get("title") + "\t");
-			System.out.print(map.get("price") + "\t");
-			System.out.print(map.get("number") + "\t");
-			
-			System.out.print(map.get("name") + "\t");
-			//System.out.print(map.get("st_name"));
-			
-			System.out.println();
-		}
+		List<List<String>> list = sd.query2();
+		System.out.println(list);
+//		for(int i = 0; i < list.size(); i++) {
+//			Map<String, Object> map = list.get(i);
+//			System.out.print(map.get("idBook") + "\t");
+//			System.out.print(map.get("title") + "\t");
+//			System.out.print(map.get("price") + "\t");
+//			System.out.print(map.get("number") + "\t");
+//			
+//			System.out.print(map.get("name") + "\t");
+//			//System.out.print(map.get("st_name"));
+//			
+//			System.out.println();
+//		}
 	}
 		
 		public void testQuery3() throws Exception {
 			fail("Not yet implemented");
 			QueryTable sd = new QueryTable();
-			List<Map<String, Object>> list = sd.query3();
-			for(int i = 0; i < list.size(); i++) {
-				Map<String, Object> map = list.get(i);
-				System.out.print(map.get("idCloth") + "\t");
-				System.out.print(map.get("type") + "\t");
-				System.out.print(map.get("price") + "\t");
-				System.out.print(map.get("number") + "\t");
-				
-				System.out.print(map.get("name") + "\t");
-				//System.out.print(map.get("st_name"));
-				
-				System.out.println();
-			}
+			List<List<String>> list = sd.query3();
+			System.out.println(list);
+//			for(int i = 0; i < list.size(); i++) {
+//				List<String> map = list.get(i);
+//				System.out.print(map.get("idCloth") + "\t");
+//				System.out.print(map.get("type") + "\t");
+//				System.out.print(map.get("price") + "\t");
+//				System.out.print(map.get("number") + "\t");
+//				
+//				System.out.print(map.get("name") + "\t");
+//				//System.out.print(map.get("st_name"));
+//				
+//				System.out.println();
+//			}
 	
 	}
 		
@@ -295,6 +307,26 @@ public class QueryTableTest extends TestCase {
 			System.out.println();
 		}
 		
+	}
+	
+	public void testQuery12() throws Exception {
+		//fail("Not yet implemented");
+		String title = "program";
+		QueryTable sd = new QueryTable();
+		List<Map<String, Object>> list = sd.query12(title);
+		for(int i = 0; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			System.out.print(map.get("idBook") + "\t");
+			System.out.print(map.get("isbn") + "\t");
+			System.out.print(map.get("title") + "\t");
+			System.out.print(map.get("price") + "\t");
+			System.out.print(map.get("number") + "\t");
+			
+			System.out.print(map.get("name") + "\t");
+			//System.out.print(map.get("st_name"));
+			
+			System.out.println();
+		}
 	}
 	
 

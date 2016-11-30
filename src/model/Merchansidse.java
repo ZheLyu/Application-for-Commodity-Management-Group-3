@@ -24,19 +24,19 @@ public class Merchansidse {
 		}
 		
 	}
-	public int getIdFactory(int IdFactory){
-		return IdFactory;
+	public int getIdFactory(){
+		return idFactory;
 	}
 	public void setIdFactpry(int IdFactory){
 		this.idFactory=IdFactory;
 	}
-	public float getPrice(float price ){
+	public float getPrice(){
 		return price;
 	}
 	public void setPrice(float price){
 		 this.price=price;
 	}
-	public int getNumber(int number ){
+	public int getNumber(){
 		return number;
 	}
 	public void setNumber(int number){

@@ -97,17 +97,20 @@ public class QueryTableController {
 	 * return id, st_name, price, number, supplier of all stationery
 	 * @throws Exception
 	 */
-	public void process1() throws Exception {
+	public String process1() throws Exception {
 		
-		m.query();		
+		String a=m.query().toString().replace("[", "").replace("]", "").replace(",", "\t");
+		return a;
 	}
 	
 	/**
 	 * Query idBook, title, price, number, supplier of books
 	 * @throws Exception 
 	 */
-	public void process2() throws Exception {
-		m.query2();
+	public String process2() throws Exception {
+		String a=m.query2().toString().replace("[", "").replace("]", "").replace(",", "\t");
+		System.out.println(a);
+		return a;
 	}
 	
 	/**idCloth, type, price, number, supplier name 
@@ -115,9 +118,10 @@ public class QueryTableController {
 	 * 
 	 * @throws Exception
 	 */
-	public void process3() throws Exception {
-		List<Map<String, Object>> list = m.query3();
-	    list.toString();
+	public String process3() throws Exception {
+	    String a=m.query3().toString().replace("[", "").replace("]", "").replace(",", "\t");
+	    return a;
+	    
 	    
 	}
 	
@@ -126,9 +130,12 @@ public class QueryTableController {
 	 * @return
 	 * @throws Exception
 	 */
-	public void process4() throws Exception {
+	public String process4() throws Exception {
 		
-	   m.query4(name);
+	  String a= m.query4(name).toString();
+	  System.out.println(a);
+	  return a;
+	 
 	}
 	
 	/**
@@ -137,8 +144,9 @@ public class QueryTableController {
 	 * @return
 	 * @throws Exception
 	 */
-	public void process5() throws Exception {
-		m.query5(type);
+	public String process5() throws Exception {
+		String a=m.query5(type).toString();
+		return a;
 	}
 
 	/**
@@ -146,8 +154,9 @@ public class QueryTableController {
 	 * @throws Exception
 	 */
 
-	public void process6() throws Exception {
-		m.query6(id);
+	public String process6() throws Exception {
+		String a=m.query6(id).toString();
+		return a;
 		
 	}
 	
@@ -156,23 +165,26 @@ public class QueryTableController {
 	 * @return
 	 * @throws Exception 
 	 */
-	public void process7() throws Exception {
-		m.query7(id);
+	public String process7() throws Exception {
+		String a=m.query7(id).toString();
+		return a;
 	}
 	/**
 	 * query book by id
 	 * @throws Exception
 	 */
-	public void process8() throws Exception {
-		m.query8(id);
+	public String process8() throws Exception {
+		String a=m.query8(id).toString();
+		return a;
 	}
 	/**
 	 * query idStationery, st_name , price, number of 
 	 * stationery by id and name
 	 * @throws SQLException
 	 */
-	public void process9() throws SQLException {
-		m.query9(id, name);
+	public String process9() throws SQLException {
+		String a=m.query9(id, name).toString();
+		return a;
 	}
 	
 	/**
@@ -180,8 +192,9 @@ public class QueryTableController {
 	 * by id and size
 	 * @throws Exception
 	 */
-	public void process10() throws Exception {
-		m.query10(id, size);
+	public String  process10() throws Exception {
+		String a=m.query10(id, size).toString();
+		return a;
 	}
 	
 	
@@ -190,8 +203,14 @@ public class QueryTableController {
 	 * by genre and title
 	 * @throws SQLException
 	 */
-	public void process11() throws SQLException {
-		m.query11(genre, title);
+	public String process11() throws SQLException {
+		String a=m.query11(genre, title).toString();
+		return a;
+	}
+	
+	public String process12() throws SQLException {
+		String a = m.query12(name).toString();
+		return a;
 	}
 
 }
