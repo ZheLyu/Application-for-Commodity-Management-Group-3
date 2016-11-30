@@ -21,7 +21,7 @@ import java.awt.Font;
 import Control.QueryTableController;
 
 public class MainView extends JFrame {
-	JLabel lblNewLabel_1 = new JLabel("V 1.0.05");
+	JLabel lblNewLabel_1 = new JLabel("V 1.0.06");
 
 	private JPanel contentPane;
 

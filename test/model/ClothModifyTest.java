@@ -11,7 +11,8 @@ public class ClothModifyTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		cloth = new Cloth();
-		cloth.setIdCloth(1789);
+
+		cloth.setIdCloth(1123);
 		cloth.setColor("red");
 		cloth.setType("coolCloth");
 		cloth.setSize("s");
@@ -23,14 +24,15 @@ public class ClothModifyTest extends TestCase {
 	
 	public void testProcessAdd() throws Exception{
 		ClothModify testadd = new ClothModify(cloth);
-		System.out.print(cloth.getColor());
 		testadd.addCloth();
 	}
 	
-	//public void testProcessUpdate() throws SQLException{
-		//ClothModify testupdate = new ClothModify(cloth);
-		//testupdate.updateCloth();
-	//}
+//	public void testProcessUpdate() throws SQLException{
+//		ClothModify testupdate = new ClothModify(cloth);
+//		testupdate.updateCloth();
+//	}
+
+
 	
 	public void testProcessDel() throws SQLException{
 		ClothModify testdel = new ClothModify(cloth);

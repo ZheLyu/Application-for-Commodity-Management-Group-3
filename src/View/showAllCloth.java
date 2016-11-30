@@ -46,8 +46,13 @@ public class showAllCloth extends JFrame {
 		textArea.setBounds(5, 5, 900, 600);
 		contentPane.add(textArea);
 		QueryTableController qu= new QueryTableController();
+
+		textArea.append("\t*************************************************************************************************************************\n");
+		textArea.append("\t id \t type \t  \t price \t number \t supplier \n");
+		textArea.append("\t*************************************************************************************************************************\n");
 		textArea.append(qu.process3());
-		textArea.append("/n");
+		textArea.append("\n");
+
 		
 	}
 }

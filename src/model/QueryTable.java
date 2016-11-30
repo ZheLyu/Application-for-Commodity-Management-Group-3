@@ -12,7 +12,7 @@ import myDB.DButil;
 public class QueryTable {
 	
 	public static List<Map<String, Object>> convertList(ResultSet rs) {
-        // 新建一个map list集合用于存放多条查询记录
+       
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         try {
             ResultSetMetaData md = rs.getMetaData();// 结果集(rs)的结构信息，比如字段数、字段名等。
@@ -82,7 +82,7 @@ public class QueryTable {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Map<String, Object>> query() throws Exception {
+	public List<List<String>> query() throws Exception {
 		//List<Stationery> result = new ArrayList<Stationery>();
 		
 		Connection conn = DButil.getConnection();
@@ -94,7 +94,33 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add(" ");
+		l.add(map0.get("idStationery").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("st_name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		
+		
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("idStationery").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("st_name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+		
+		
+		return result;
 		
 //		Stationery s = null;
 //		while(rs.next()) {
@@ -108,12 +134,30 @@ public class QueryTable {
 
 	}
 	
+	
+	/**
+	 * query from view current_product_amount
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> query1() throws Exception  {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append("select * from current_product_amount");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		
+		return list;
+	}
+	
 	/**
 	 * 
 	 * @return idBook, title, price, number, supplier of books
 	 * @throws Exception
 	 */
-	public List<Map<String, Object>> query2() throws Exception {
+	public List<List<String>> query2() throws Exception {
 		
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
@@ -126,7 +170,31 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add(" ");
+		l.add(map0.get("idBook").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("title").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		
+		
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("idBook").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("title").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+		return result;
 		
 	}
 	/**
@@ -134,7 +202,7 @@ public class QueryTable {
 	 * @return idCloth, type, price, number, supplier name of all cloth
 	 * @throws Exception
 	 */
-	public List<Map<String, Object>> query3() throws Exception {
+	public List<List<String>> query3() throws Exception {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		//sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
@@ -146,8 +214,33 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add(" ");
+		l.add(map0.get("idCloth").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("type").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
 		
-		return list;
+		
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("idCloth").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("type").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+		
+		
+		return result;
 	}
 	/**
 	 * Query stationery by st_name
@@ -342,6 +435,31 @@ public class QueryTable {
 		List<Map<String, Object>> list = convertList(rs);
 		return list;
 		
+	}
+	
+	/**
+	 * query book by title
+	 * @param title
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Map<String, Object>> query12(String title) throws SQLException {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select * from ");
+		sb.append(" (select idBook, isbn, title, price, number, name from book, merchandise, supplier");
+		sb.append(" where idBook = id and supplier_id = idSupplier) AS T ");
+		sb.append(" where T.title REGEXP ? ");
+		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
+//		sb.append(" where T.idCloth = ? ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setString(1,   title );
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
 	}
 
 	

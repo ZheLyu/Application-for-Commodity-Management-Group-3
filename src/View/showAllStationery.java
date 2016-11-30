@@ -21,7 +21,9 @@ public class showAllStationery extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					showAllBook frame = new showAllBook();
+
+
+					showAllStationery frame = new showAllStationery();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,6 +48,11 @@ public class showAllStationery extends JFrame {
 		textArea.setBounds(5, 5, 900, 600);
 		contentPane.add(textArea);
 		QueryTableController qu= new QueryTableController();
+		textArea.append("\t******************************************************************************************************************\n");
+		textArea.append("\t id \t name \t  \t price \t number \t supplier \n");
+		textArea.append("\t******************************************************************************************************************\n");
+
+
 		textArea.append(qu.process1());
 		textArea.append("/n");
 		
