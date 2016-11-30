@@ -19,6 +19,11 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 
 import Control.QueryTableController;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import java.awt.Toolkit;
 
 public class MainView extends JFrame {
 	JLabel lblNewLabel_1 = new JLabel("V 1.0.05");
@@ -45,9 +50,11 @@ public class MainView extends JFrame {
 	 * Create the frame.
 	 */
 	public MainView() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\dell\\Desktop\\\u521B\u610F\u5927\u7406\u77F3\u7EB9\u7406\u80CC\u666F\u77E2\u91CF\u7D20\u6750.png.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 900, 600);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -59,15 +66,17 @@ public class MainView extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		final JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(Color.WHITE);
 		comboBox.addItem("cloth");
 		comboBox.addItem("book");
 		comboBox.addItem("others");
 		contentPane.add(comboBox);
 		this.setVisible(true);
-		comboBox.setBounds(28, 48, 95, 38);
+		comboBox.setBounds(38, 46, 95, 38);
 		contentPane.add(comboBox);
 		
-		JButton btnNewButton = new JButton("Add");
+		JButton btnNewButton = new JButton("Commodity storage");
+		btnNewButton.setIcon(null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedItem()=="cloth"){
@@ -84,20 +93,20 @@ public class MainView extends JFrame {
 			 
 			}
 		});
-		btnNewButton.setBounds(0, 104, 121, 56);
+		btnNewButton.setBounds(38, 119, 169, 56);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Change");
+		JButton btnNewButton_1 = new JButton("Commodity Change");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				changeView change=new changeView();
 				change.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(0, 223, 121, 56);
+		btnNewButton_1.setBounds(38, 223, 169, 56);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Delete");
+		JButton btnNewButton_2 = new JButton("Commodity Delete");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					if(comboBox.getSelectedItem()=="cloth"){
@@ -113,17 +122,17 @@ public class MainView extends JFrame {
 					}
 			}
 		});
-		btnNewButton_2.setBounds(0, 337, 121, 56);
+		btnNewButton_2.setBounds(38, 324, 169, 56);
 		contentPane.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Find");
+		JButton btnNewButton_3 = new JButton("Find by Attribute");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				findView find=new findView();
 				find.setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(0, 446, 121, 56);
+		btnNewButton_3.setBounds(38, 433, 169, 56);
 		contentPane.add(btnNewButton_3);
 		
 
@@ -146,7 +155,7 @@ public class MainView extends JFrame {
  				
 			}
 		});
-		btnNewButton_4.setBounds(369, 119, 240, 56);
+		btnNewButton_4.setBounds(369, 119, 169, 56);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Show All Cloth");
@@ -163,7 +172,7 @@ public class MainView extends JFrame {
 				
 			}
 		});
-		btnNewButton_5.setBounds(369, 223, 240, 56);
+		btnNewButton_5.setBounds(369, 223, 169, 56);
 		contentPane.add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Show All Stationery");
@@ -180,8 +189,21 @@ public class MainView extends JFrame {
 		});
 
 	
-		btnNewButton_6.setBounds(369, 324, 240, 56);
+		btnNewButton_6.setBounds(369, 324, 169, 56);
 		contentPane.add(btnNewButton_6);
+		
+		JButton btnNewButton_7 = new JButton("Add User");
+		btnNewButton_7.setBounds(624, 485, 115, 38);
+		contentPane.add(btnNewButton_7);
+		
+		JButton btnNewButton_8 = new JButton("Cancel");
+		btnNewButton_8.setBounds(753, 485, 115, 38);
+		contentPane.add(btnNewButton_8);
+		
+		JButton btnNewButton_9 = new JButton("Search by Range");
+		btnNewButton_9.setBounds(369, 433, 169, 56);
+		contentPane.add(btnNewButton_9);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblNewLabel, comboBox, btnNewButton, btnNewButton_1, btnNewButton_2, btnNewButton_3, lblNewLabel_1, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnNewButton_7}));
 	}
 }
 
