@@ -27,9 +27,7 @@ public class ClothController {
 		m.setPrice(price);
 		m.setNumber(number);
 		new MerchandiseModify(m).addMerchandise();;
-		new ClothModify(cloth).addCloth();
-
-		//view.showResult();		
+		new ClothModify(cloth).addCloth();		
 		return true;
 	}
 	
