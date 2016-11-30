@@ -87,15 +87,7 @@ public class ClothModify {
 		System.out.println("successfully del");
 	}
 
-	public void delClothNumber(int number){
-		Connection conn = DButil.getConnection();
-		StringBuilder sb = new StringBuilder();
-		sb.append(" update merchandise");
-		sb.append("	set number=?");
-		sb.append(" where id=?")
-		
-		
-	}
+
 
 	public void delClothNumber(int number){
 		/**Connection conn = DButil.getConnection();
