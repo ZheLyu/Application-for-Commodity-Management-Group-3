@@ -82,7 +82,9 @@ public class findBookView extends JFrame {
 				qu.setName(textField_1.getText());
 			    if(textField.getText().isEmpty()){
 					try {
-						textArea.append(qu.process8());
+
+
+						textArea.append(qu.process12());
 						   textArea.append("\n");
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
@@ -110,6 +112,7 @@ public class findBookView extends JFrame {
 				}
 			}
 		});
+
 		btnNewButton.setBounds(428, 51, 113, 27);
 		contentPane.add(btnNewButton);
 		

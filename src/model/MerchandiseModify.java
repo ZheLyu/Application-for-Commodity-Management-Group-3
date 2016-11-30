@@ -32,19 +32,6 @@ public class MerchandiseModify {
 		ptmt.setInt(3, m.getNumber());
 		ptmt.setFloat(4, m.getPrice());
 		ptmt.execute();
-		
-		/**Connection conn = DButil.getConnection();
-		String sql = ""+
-				" insert into merchandise"+
-				" id,supplier_id,price,number"+
-				" values("+
-				" ?,?,?,?)";
-		PreparedStatement ptmt = conn.prepareStatement(sql);
-		ptmt.setInt(1, m.getIdMerchansidse());
-		ptmt.setInt(2, m.getIdFactory());
-		ptmt.setInt(3, m.getNumber());
-		ptmt.setFloat(4, m.getPrice());
-		ptmt.execute();*/
 		System.out.println("successfully add");
 	}
 	/**
@@ -77,6 +64,21 @@ public class MerchandiseModify {
 		ptmt.setInt(2, m.getIdFactory());
 		ptmt.execute();		
 		System.out.println("successfully del");
+	}
+	
+	public void delMerchandiseNumber(int id, int number) throws SQLException{
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" update merchandise");
+		sb.append(" set number=(number-?)");
+		sb.append(" where id=?");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1, number);
+		ptmt.setInt(2, id);
+		ptmt.execute();
+		System.out.println("successfully delete number");
+			
+		
 	}
 	
 }

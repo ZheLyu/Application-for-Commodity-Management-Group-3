@@ -73,13 +73,30 @@ public class ClothModify {
 	 */
 	public void delCloth() throws SQLException{
 		Connection conn = DButil.getConnection();
-		String sql = ""+
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(" delet from cloth");
+		sb.append(" where type=?");
+
+		
+		/**String sql = ""+
 				" delete from Cloth"+
-				" where idCloth=?";
-		PreparedStatement ptmt = conn.prepareStatement(sql);
-		ptmt.setInt(1, c.getIdCloth());
+				" where idCloth=?";*/
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.execute();		
 		System.out.println("successfully del");
+	}
+
+
+
+	public void delClothNumber(int number){
+		/**Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" update merchandise");
+		sb.append("	set number=?");
+		sb.append(" where id=?")*/
+		
+		
 	}
 	
 

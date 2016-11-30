@@ -20,7 +20,7 @@ public class trytoadd {
 		cloth.setSize("s");*/
 
 		//System.out.println(cloth.getColor());
-		new ClothController(v).process_add("red", "coolcloth", "medium", 1999, 1001, 12, 12);
+		new ClothController().process_add("red", "coolcloth", "medium", 1999, 1001, 12, 12);
 		
 
 	}

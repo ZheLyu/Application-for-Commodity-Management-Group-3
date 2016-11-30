@@ -3,6 +3,7 @@ package View;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
@@ -87,7 +88,7 @@ public class findClothView extends JFrame {
 				qu.setName(textField_1.getText());
 			    if(textField.getText().isEmpty()){
 					try {
-						textArea.append(qu.process7());
+						textArea.append(qu.process5());
 						textArea.append("\n");
 						
 					} catch (Exception e1) {
@@ -106,7 +107,7 @@ public class findClothView extends JFrame {
 				}
 				else{
 					try {
-						textArea.append(qu.process5());
+						textArea.append(qu.process7());
 						textArea.append("\n");
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
