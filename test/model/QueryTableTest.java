@@ -20,7 +20,7 @@ public class QueryTableTest extends TestCase {
 	}
 
 	public void testQuery() throws Exception {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 		QueryTable sd = new QueryTable();
 		List<Map<String, Object>> list = sd.query1();
 		for(int i = 0; i < list.size(); i++) {
@@ -288,7 +288,7 @@ public class QueryTableTest extends TestCase {
 	}
 	
 	public void testQuery11 () throws SQLException {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 		String genre = "cs";
 		String title = "program";
 		QueryTable sd = new QueryTable();

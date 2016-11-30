@@ -258,6 +258,8 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
+		System.out.println(list);
+	
 		return list;
 		
 	}
@@ -306,7 +308,7 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
-		
+		System.out.println(list);
 		return list;
 		
 	}
@@ -429,6 +431,7 @@ public class QueryTable {
 		ptmt.setString(1, genre);
 		ptmt.setString(2, title);
 		ResultSet rs = ptmt.executeQuery();
+	
 		List<Map<String, Object>> list = convertList(rs);
 		return list;
 		

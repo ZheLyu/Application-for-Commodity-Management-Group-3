@@ -46,9 +46,11 @@ public class showAllBook extends JFrame {
 		textArea.setBounds(5, 5, 900, 600);
 		contentPane.add(textArea);
 		QueryTableController qu= new QueryTableController();
+
 		textArea.append("\t************************************************************************************************************************************\n");
 		textArea.append("\t id \t title \t  \t price \t number \t supplier \n");
 		textArea.append("\t************************************************************************************************************************************\n");
+
 		textArea.append(qu.process2());
 		textArea.append("/n");
 		

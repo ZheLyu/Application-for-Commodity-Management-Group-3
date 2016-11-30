@@ -82,6 +82,8 @@ public class findBookView extends JFrame {
 				qu.setName(textField_1.getText());
 			    if(textField.getText().isEmpty()){
 					try {
+
+
 						textArea.append(qu.process12());
 						   textArea.append("\n");
 					} catch (Exception e1) {
@@ -110,41 +112,7 @@ public class findBookView extends JFrame {
 				}
 			}
 		});
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				QueryTableController qu= new QueryTableController();
-				qu.setId(textField.getText());
-				qu.setName(textField_1.getText());
-			    if(textField.getText().isEmpty()){
-					try {
-						textArea.append(qu.process8());
-						   textArea.append("\n");
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
-				else if(textField_1.getText().isEmpty()){
-					try {
-						textArea.append(qu.process8());
-						   textArea.append("\n");
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
-				else {
-					try {
-						textArea.append(qu.process8());
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				   textArea.append("\n");
-					
-				}
-			}
-		});
+
 		btnNewButton.setBounds(428, 51, 113, 27);
 		contentPane.add(btnNewButton);
 		

@@ -99,7 +99,9 @@ public class QueryTableController {
 	 */
 	public String process1() throws Exception {
 		
+
 		String a=m.query().toString().replace("[", "").replace("]", "").replace(",", "\t");
+
 		return a;
 	}
 	
@@ -108,7 +110,9 @@ public class QueryTableController {
 	 * @throws Exception 
 	 */
 	public String process2() throws Exception {
+
 		String a=m.query2().toString().replace("[", "").replace("]", "").replace(",", "\t");
+
 		System.out.println(a);
 		return a;
 	}
@@ -119,7 +123,9 @@ public class QueryTableController {
 	 * @throws Exception
 	 */
 	public String process3() throws Exception {
+
 	    String a=m.query3().toString().replace("[", "").replace("]", "").replace(",", "\t");
+
 	    return a;
 	    
 	    
@@ -206,11 +212,13 @@ public class QueryTableController {
 	public String process11() throws SQLException {
 		String a=m.query11(genre, title).toString();
 		return a;
+
 	}
 	
 	public String process12() throws SQLException {
 		String a = m.query12(name).toString();
 		return a;
+
 	}
 
 }

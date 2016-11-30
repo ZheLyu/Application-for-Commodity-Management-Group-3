@@ -21,6 +21,8 @@ public class showAllStationery extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+
+
 					showAllStationery frame = new showAllStationery();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -49,6 +51,8 @@ public class showAllStationery extends JFrame {
 		textArea.append("\t******************************************************************************************************************\n");
 		textArea.append("\t id \t name \t  \t price \t number \t supplier \n");
 		textArea.append("\t******************************************************************************************************************\n");
+
+
 		textArea.append(qu.process1());
 		textArea.append("/n");
 		
