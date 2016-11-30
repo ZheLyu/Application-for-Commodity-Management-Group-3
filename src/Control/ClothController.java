@@ -1,6 +1,5 @@
 package Control;
 
-import View.addclothView;
 import model.Cloth;
 import model.ClothModify;
 import model.MerchandiseModify;
@@ -9,12 +8,11 @@ import model.Merchansidse;
 public class ClothController {
 	Cloth cloth;
 	Merchansidse m;
-	addclothView view;
+
 	
-	public ClothController(addclothView v){
+	public ClothController(){
 		this.cloth = new Cloth();
 		this.m = new Merchansidse();
-		this.view = v;
 	}
 	
 	public Boolean process_add(String color, String type, String size, int IdCloth, int supplierId, int price, int number) throws Exception{

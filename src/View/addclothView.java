@@ -113,7 +113,7 @@ public class addclothView extends JFrame {
 				int supplierId = Integer.parseInt(textFieldSupplierId.getText());
 
 				try {
-					new ClothController(addclothView.this).process_add(color, type, size, IdCloth, supplierId, price, number);
+					new ClothController().process_add(color, type, size, IdCloth, supplierId, price, number);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
