@@ -21,7 +21,7 @@ public class Cloth {
 		return size;
 	}
 
-	public void setSize(String type){
+	public void setSize(String size){
 		this.size=size;
 
 	}

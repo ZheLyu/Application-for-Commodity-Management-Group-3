@@ -128,8 +128,16 @@ public class MainView extends JFrame {
 		JButton btnNewButton_3 = new JButton("Find by Attribute");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				findView find=new findView();
-				find.setVisible(true);
+				if(comboBox.getSelectedItem()=="cloth"){
+					findClothView findcloth= new findClothView();
+					findcloth.setVisible(true);}
+				if(comboBox.getSelectedItem()=="book"){
+						findBookView findBook= new findBookView();
+						findBook.setVisible(true);}
+				if(comboBox.getSelectedItem()=="others"){
+							findStationeryView findStationery= new findStationeryView();
+							findStationery.setVisible(true);
+				}	
 			}
 		});
 		btnNewButton_3.setBounds(38, 433, 169, 56);
@@ -195,10 +203,27 @@ public class MainView extends JFrame {
 		JButton btnNewButton_7 = new JButton("Add User");
 		btnNewButton_7.setBounds(624, 485, 115, 38);
 		contentPane.add(btnNewButton_7);
+		btnNewButton_7.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				  try {
+						showAllStationery show=new showAllStationery();
+						show.setVisible(true);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			}
+			
+		});
 		
 		JButton btnNewButton_8 = new JButton("Cancel");
 		btnNewButton_8.setBounds(753, 485, 115, 38);
 		contentPane.add(btnNewButton_8);
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		
 		JButton btnNewButton_9 = new JButton("Search by Range");
 		btnNewButton_9.setBounds(369, 433, 169, 56);

@@ -104,7 +104,7 @@ public class addclothView extends JFrame {
 				String type = textFieldClothName.getText();
 				//String size = comboBoxSize.getSelectedItem().toString();
 				//String color = comboBoxColor.getSelectedItem().toString();
-				String size = "xxl";
+				String size = "XXSmall";
 				String color = "red";
 				
 				int IdCloth = Integer.parseInt(textFieldClothId.getText());

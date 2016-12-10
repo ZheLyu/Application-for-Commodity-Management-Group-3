@@ -82,7 +82,7 @@ public class addStationeryView extends JFrame {
 
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				dispose();
 			}
 		});
 		

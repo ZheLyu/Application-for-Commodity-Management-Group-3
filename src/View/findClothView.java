@@ -45,7 +45,7 @@ public class findClothView extends JFrame {
 	 * Create the frame.
 	 */
 	public findClothView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 573, 464);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -122,6 +122,11 @@ public class findClothView extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setBounds(428, 123, 113, 27);
 		contentPane.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		
 		JScrollBar scrollBar = new JScrollBar();
 		scrollBar.setBounds(0, 185, 21, 232);

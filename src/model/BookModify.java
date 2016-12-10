@@ -25,15 +25,17 @@ public class BookModify {
 	public int delBookNumber(String title) throws SQLException{
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
-		sb.append("select idBook from ");
+		sb.append(" select idBook from ");
 		sb.append(" book");
 		sb.append(" where title=?");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1, title);
+		System.out.println(title);
 		ResultSet rs = ptmt.executeQuery();
-		
-		
-		return rs.getInt(1);
+		rs.next();
+		int id = rs.getInt(1);
+		System.out.println(id);
+		return id;
 	}
 
 }

@@ -38,7 +38,7 @@ public class deleteStationeryView extends JFrame {
 	 * Create the frame.
 	 */
 	public deleteStationeryView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

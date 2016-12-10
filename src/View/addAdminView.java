@@ -1,5 +1,6 @@
 package View;
 
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -25,7 +26,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginView extends JFrame {
+public class addAdminView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -40,7 +41,7 @@ public class LoginView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginView frame = new LoginView();
+					addAdminView  frame= new addAdminView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,8 +53,8 @@ public class LoginView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public addAdminView() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -61,8 +62,8 @@ public class LoginView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setBounds(183, 13, 94, 27);
+		JLabel lblNewLabel = new JLabel("Add Administrator");
+		lblNewLabel.setBounds(134, 13, 147, 27);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Administrator");
@@ -86,34 +87,26 @@ public class LoginView extends JFrame {
 		textField_1.setBounds(159, 147, 147, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		JButton btnNewButton = new JButton("Login");
+		JButton btnNewButton = new JButton("Add");
 		btnNewButton.setBounds(69, 200, 113, 27);
 		contentPane.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ad=textField.getText();
 				password=textField_1.getText();
-				LoginModel mo= new LoginModel();
-				//addAdmin add=new addAdmin();
-				mo.setAd(ad);
-				mo.setPassword(password);
-				//add.setAd(ad);
-				//add.setPassword(password);
+				
+				addAdmin add=new addAdmin();
+				
+				add.setAd(ad);
+				add.setPassword(password);
+				textArea.setText("Add Successful!");
+			
 				try {
-					//add.query();
-					if(mo.query()==true){
-						MainView m= new MainView();
-						m.setVisible(true);
-					
-					}
-					else{
-					
-						textArea.setText("Wrong user name or password, please try again!");
-						
-					}
-					
+					add.query();
+				
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
+					textArea.setText("The user name is existed!");
 					e1.printStackTrace();
 				}
 			}
