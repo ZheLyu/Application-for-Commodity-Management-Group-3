@@ -239,7 +239,7 @@ public class QueryTableController {
 
 	}
 	public String process15() throws SQLException {
-		String a = m.query15(price1,price2).toString();
+		String a = m.query15(price1,price2).toString().replace("[", "").replace("]", "").replace(",", "\t");
 		return a;
 
 	}

@@ -72,7 +72,7 @@ public class findStationeryRange extends JFrame {
 		contentPane.add(textField);
 		
 		textArea = new JTextArea();
-		textArea.setBounds(30, 242, 374, 113);
+		textArea.setBounds(30, 242, 402, 205);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("Search");
