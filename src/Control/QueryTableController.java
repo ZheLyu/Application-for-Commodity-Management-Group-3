@@ -21,6 +21,8 @@ public class QueryTableController {
 	private String genre;
 	private String title;
 	private String size;
+	private String price1;
+	private String price2;
 	
 	public String getSize() {
 		return size;
@@ -80,6 +82,12 @@ public class QueryTableController {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setPrice1(String price1){
+		this.price1=price1;
+	}
+	public void setPrice2(String price2){
+		this.price2=price2;
 	}
 	
 	public QueryTableController(QueryTable m, LoginView l) {
@@ -220,5 +228,21 @@ public class QueryTableController {
 		return a;
 
 	}
+	public String process13() throws SQLException {
+		String a = m.query14(price1,price2).toString();
+		return a;
+
+	}
+	public String process14() throws SQLException {
+		String a = m.query14(price1,price2).toString();
+		return a;
+
+	}
+	public String process15() throws SQLException {
+		String a = m.query15(price1,price2).toString();
+		return a;
+
+	}
+	
 
 }

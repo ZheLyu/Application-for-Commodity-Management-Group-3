@@ -18,7 +18,7 @@ import javax.swing.JTextArea;
 
 import Control.QueryTableController;
 
-public class findClothRange extends JFrame {
+public class findBookRange extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_1;
@@ -32,7 +32,7 @@ public class findClothRange extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					findClothRange frame = new findClothRange();
+					findBookRange frame = new findBookRange();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class findClothRange extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public findClothRange() {
+	public findBookRange() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 477, 507);
 		contentPane = new JPanel();
@@ -58,7 +58,7 @@ public class findClothRange extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Search Cloth  by  Range");
+		JLabel lblNewLabel = new JLabel("Search Book  by  Range");
 		lblNewLabel.setBounds(145, 13, 203, 24);
 		contentPane.add(lblNewLabel);
 		
@@ -85,7 +85,7 @@ public class findClothRange extends JFrame {
 				qu.setPrice1(textField.getText());
 				qu.setPrice2(textField_1.getText());
 				try {
-					textArea.append(qu.process13());
+					textArea.append(qu.process14());
 					textArea.append("\n");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block

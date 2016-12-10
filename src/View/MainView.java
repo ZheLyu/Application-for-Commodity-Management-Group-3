@@ -206,7 +206,7 @@ public class MainView extends JFrame {
 		btnNewButton_7.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				  try {
-						showAllStationery show=new showAllStationery();
+						addAdminView show=new addAdminView();
 						show.setVisible(true);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
@@ -227,6 +227,20 @@ public class MainView extends JFrame {
 		
 		JButton btnNewButton_9 = new JButton("Search by Range");
 		btnNewButton_9.setBounds(369, 433, 169, 56);
+		btnNewButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(comboBox.getSelectedItem()=="cloth"){
+					findClothRange findcloth= new findClothRange();
+					findcloth.setVisible(true);}
+				if(comboBox.getSelectedItem()=="book"){
+						findBookRange findBook= new findBookRange();
+						findBook.setVisible(true);}
+				if(comboBox.getSelectedItem()=="others"){
+							findStationeryRange findStationery= new findStationeryRange();
+							findStationery.setVisible(true);
+				}	
+			}
+		});
 		contentPane.add(btnNewButton_9);
 		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblNewLabel, comboBox, btnNewButton, btnNewButton_1, btnNewButton_2, btnNewButton_3, lblNewLabel_1, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnNewButton_7}));
 	}

@@ -461,6 +461,58 @@ public class QueryTable {
 		List<Map<String, Object>> list = convertList(rs);
 		return list;
 	}
+	public List<Map<String, Object>> query13(String price1, String price2) throws SQLException {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select * from Current_Product_Price");
+		sb.append(" where  id<2000 and price> ? and price < ? ");
+		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
+//		sb.append(" where T.idCloth = ? ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setString(1, price2);
+		ptmt.setString(2, price1);
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+	}
+	public List<Map<String, Object>> query14(String price1, String price2) throws SQLException {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select * from Current_Product_Price");
+		sb.append(" where  id>2000 and id<3000 and price> ? and price < ? ");
+		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
+//		sb.append(" where T.idCloth = ? ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setString(1, price2);
+		ptmt.setString(2, price1);
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+	}
+	public List<Map<String, Object>> query15(String price1, String price2) throws SQLException {
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select * from Current_Product_Price");
+		sb.append(" where  id>3000 and price> ? and price < ? ");
+		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
+		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
+//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
+//		sb.append(" where T.idCloth = ? ");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setString(1, price2);
+		ptmt.setString(2, price1);
+		ResultSet rs = ptmt.executeQuery();
+		
+		List<Map<String, Object>> list = convertList(rs);
+		return list;
+	}
+
 
 	
 }
