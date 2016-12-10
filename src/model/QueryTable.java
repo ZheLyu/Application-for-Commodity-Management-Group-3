@@ -495,7 +495,7 @@ public class QueryTable {
 		List<Map<String, Object>> list = convertList(rs);
 		return list;
 	}
-	public List<Map<String, Object>> query15(String price1, String price2) throws SQLException {
+	public List<List<String>> query15(String price1, String price2) throws SQLException {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from Current_Product_Price");
@@ -510,7 +510,29 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add("");
+		l.add(map0.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map0.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+
+		
+		return result;
 	}
 
 
