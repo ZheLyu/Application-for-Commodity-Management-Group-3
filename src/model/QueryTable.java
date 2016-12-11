@@ -68,14 +68,7 @@ public class QueryTable {
 		
 	}
 	
-//	public List<Map<String, Object>> query(Integer id) {
-//		Connection conn = DButil.getConnection();
-//		StringBuilder sb = new StringBuilder();
-//		sb = 
-//		
-//		return list;
-//		
-//	}
+
 	
 	/**
 	 * Query the id, st_name, price, number, supplier of all stationery
@@ -88,7 +81,6 @@ public class QueryTable {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
 		sb.append("where idStationery = id and supplier_id = idSupplier");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ResultSet rs = ptmt.executeQuery();
@@ -122,15 +114,7 @@ public class QueryTable {
 		
 		return result;
 		
-//		Stationery s = null;
-//		while(rs.next()) {
-//			s = new Stationery();
-//			s.setSt_name(rs.getString("st_name"));
-//			s.setIdStationery(rs.getInt("idStationery"));
-//			
-//			result.add(s);
-//		}
-//		return result;
+
 
 	}
 	
@@ -161,11 +145,8 @@ public class QueryTable {
 		
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
-		//sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
 		sb.append("select idBook, title, price, number, name from book, merchandise, supplier");
 		sb.append(" where idBook = id and supplier_id = idSupplier");
-		//sb.append("where idStationery = id and supplier_id = idSupplier");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ResultSet rs = ptmt.executeQuery();
 		
@@ -205,10 +186,7 @@ public class QueryTable {
 	public List<List<String>> query3() throws Exception {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
-		//sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
 		sb.append("select distinct idCloth, type, price, number, name from cloth, merchandise, supplier ");
-		//sb.append("select idBook, title, price, number, name from book, merchandise, supplier");
-
 		sb.append(" where idCloth = id and supplier_id = idSupplier");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ResultSet rs = ptmt.executeQuery();
@@ -251,7 +229,6 @@ public class QueryTable {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
 		sb.append(" where st_name REGEXP ? and idStationery = id and supplier_id = idSupplier");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1,   name );
@@ -274,11 +251,7 @@ public class QueryTable {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select distinct idCloth, type, price, number, name from cloth, merchandise, supplier ");
-		//sb.append("select idBook, title, price, number, name from book, merchandise, supplier");
-
 		sb.append(" where type REGEXP ? and idCloth = id and supplier_id = idSupplier");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
-		//sb.append(" where st_name REGEXP ? and idStationery = id and supplier_id = idSupplier");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1,   type );
 		ResultSet rs = ptmt.executeQuery();
@@ -300,7 +273,6 @@ public class QueryTable {
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from ");
 		sb.append("(select st_name, idStationery, price, number, name from stationery, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
 		sb.append(" where  idStationery = id and supplier_id = idSupplier ) AS T ");
 		sb.append(" where T.idStationery = ? ");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
@@ -325,7 +297,6 @@ public class QueryTable {
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from ");
 		sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
 		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
 		sb.append(" where T.idCloth = ? ");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
@@ -350,10 +321,6 @@ public class QueryTable {
 		sb.append(" (select idBook, isbn, title, price, number, name from book, merchandise, supplier");
 		sb.append(" where idBook = id and supplier_id = idSupplier) AS T ");
 		sb.append(" where T.idBook = ? ");
-		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
-//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
-//		sb.append(" where T.idCloth = ? ");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setInt(1,   id );
 		ResultSet rs = ptmt.executeQuery();
@@ -450,10 +417,6 @@ public class QueryTable {
 		sb.append(" (select idBook, isbn, title, price, number, name from book, merchandise, supplier");
 		sb.append(" where idBook = id and supplier_id = idSupplier) AS T ");
 		sb.append(" where T.title REGEXP ? ");
-		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
-//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
-//		sb.append(" where T.idCloth = ? ");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1,   title );
 		ResultSet rs = ptmt.executeQuery();
@@ -461,52 +424,88 @@ public class QueryTable {
 		List<Map<String, Object>> list = convertList(rs);
 		return list;
 	}
-	public List<Map<String, Object>> query13(String price1, String price2) throws SQLException {
+	public List<List<String>> query13(String price1, String price2) throws SQLException {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from Current_Product_Price");
 		sb.append(" where  id<2000 and price> ? and price < ? ");
-		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
-//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
-//		sb.append(" where T.idCloth = ? ");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1, price2);
 		ptmt.setString(2, price1);
 		ResultSet rs = ptmt.executeQuery();
-		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add(" ");
+		l.add(map0.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+		
+		
+		
+		return result;
 	}
-	public List<Map<String, Object>> query14(String price1, String price2) throws SQLException {
+	public List<List<String>> query14(String price1, String price2) throws SQLException {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from Current_Product_Price");
 		sb.append(" where  id>2000 and id<3000 and price> ? and price < ? ");
-		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
-//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
-//		sb.append(" where T.idCloth = ? ");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1, price2);
 		ptmt.setString(2, price1);
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add("");
+		l.add(map0.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+
+		
+		return result;
+		
 	}
-	public List<List<String>> query15(String price1, String price2) throws SQLException {
+	public List<List<String>> query15(String price_1, String price_2) throws SQLException {
+		int price1 = Integer.parseInt(price_1);
+		int price2 = Integer.parseInt(price_2);
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from Current_Product_Price");
 		sb.append(" where  id>3000 and price> ? and price < ? ");
-		//sb.append("(select type,color, size, idCloth, price, number, name from cloth, merchandise,supplier ");
-		//sb.append("select st_name, idStationery, price, number from stationery, merchandise ");
-//		sb.append(" where  idCloth = id and supplier_id = idSupplier ) AS T ");
-//		sb.append(" where T.idCloth = ? ");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
-		ptmt.setString(1, price2);
-		ptmt.setString(2, price1);
+		ptmt.setInt(1, price2);
+		ptmt.setInt(2, price1);
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
@@ -523,10 +522,10 @@ public class QueryTable {
 		for(int i = 1; i < list.size(); i++) {
 			Map<String, Object> map = list.get(i);
 			List<String> o = new ArrayList<>();
-			o.add(map0.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-			o.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-			o.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-			o.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
 			o.add("\n");
 			result.add(o);
 		}

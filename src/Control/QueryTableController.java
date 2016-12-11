@@ -229,12 +229,12 @@ public class QueryTableController {
 
 	}
 	public String process13() throws SQLException {
-		String a = m.query14(price1,price2).toString().replace("[", "").replace("]", "").replace(",", "\t");
+		String a = m.query13(price1,price2).toString().replace("[", "").replace("]", "").replace(",", "\t");
 		return a;
 
 	}
 	public String process14() throws SQLException {
-		String a = m.query14(price1,price2).toString();
+		String a = m.query14(price1,price2).toString().replace("[", "").replace("]", "").replace(",", "\t");
 		return a;
 
 	}

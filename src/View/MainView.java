@@ -26,7 +26,7 @@ import java.awt.Component;
 import java.awt.Toolkit;
 
 public class MainView extends JFrame {
-	JLabel lblNewLabel_1 = new JLabel("V 1.0.06");
+	JLabel lblNewLabel_1 = new JLabel("V 1.0.07");
 
 	private JPanel contentPane;
 

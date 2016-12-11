@@ -46,7 +46,7 @@ public class findBookRange extends JFrame {
 	 */
 	public findBookRange() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 477, 507);
+		setBounds(100, 100, 660, 508);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,16 +63,16 @@ public class findBookRange extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel label = new JLabel("<=Price<=");
-		label.setBounds(176, 88, 72, 18);
+		label.setBounds(267, 87, 72, 18);
 		contentPane.add(label);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(262, 85, 86, 24);
+		textField.setBounds(416, 85, 86, 24);
 		contentPane.add(textField);
 		
 		textArea = new JTextArea();
-		textArea.setBounds(30, 242, 374, 113);
+		textArea.setBounds(30, 242, 590, 207);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("Search");
@@ -85,6 +85,9 @@ public class findBookRange extends JFrame {
 				qu.setPrice1(textField.getText());
 				qu.setPrice2(textField_1.getText());
 				try {
+					textArea.append("\t********************************************************************************************************************\n");
+					textArea.append("\t id \t name \t  \t price  \t number  \n");
+					textArea.append("\t********************************************************************************************************************\n");
 					textArea.append(qu.process14());
 					textArea.append("\n");
 				} catch (Exception e1) {
@@ -97,7 +100,7 @@ public class findBookRange extends JFrame {
 		
 		
 		JButton btnNewButton_1 = new JButton("Cancel");
-		btnNewButton_1.setBounds(235, 183, 113, 27);
+		btnNewButton_1.setBounds(408, 183, 113, 27);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

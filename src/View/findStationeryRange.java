@@ -46,7 +46,7 @@ public class findStationeryRange extends JFrame {
 	 */
 	public findStationeryRange() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 477, 507);
+		setBounds(100, 100, 660, 530);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,20 +59,20 @@ public class findStationeryRange extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Search Stationery by  Range");
-		lblNewLabel.setBounds(145, 13, 203, 24);
+		lblNewLabel.setBounds(208, 10, 203, 24);
 		contentPane.add(lblNewLabel);
 		
 		JLabel label = new JLabel("<=Price<=");
-		label.setBounds(176, 88, 72, 18);
+		label.setBounds(262, 87, 72, 18);
 		contentPane.add(label);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(262, 85, 86, 24);
+		textField.setBounds(399, 85, 86, 24);
 		contentPane.add(textField);
 		
 		textArea = new JTextArea();
-		textArea.setBounds(30, 242, 402, 205);
+		textArea.setBounds(30, 242, 580, 205);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("Search");
@@ -85,6 +85,9 @@ public class findStationeryRange extends JFrame {
 				qu.setPrice1(textField.getText());
 				qu.setPrice2(textField_1.getText());
 				try {
+					textArea.append("\t********************************************************************************************************************\n");
+					textArea.append("\t id \t name \t  \t price  \t number  \n");
+					textArea.append("\t********************************************************************************************************************\n");
 					textArea.append(qu.process15());
 					textArea.append("\n");
 				} catch (Exception e1) {
@@ -97,7 +100,7 @@ public class findStationeryRange extends JFrame {
 		
 		
 		JButton btnNewButton_1 = new JButton("Cancel");
-		btnNewButton_1.setBounds(235, 183, 113, 27);
+		btnNewButton_1.setBounds(417, 183, 113, 27);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
