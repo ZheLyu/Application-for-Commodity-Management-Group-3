@@ -330,12 +330,13 @@ public class QueryTableTest extends TestCase {
 	}
 	
 	public void testQuery15() throws Exception {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 		String p1 = "1";
 		String p2 = "200";
 		QueryTable sd = new QueryTable();
 		
-		System.out.println(sd.query13(p2, p1).toString());
+		//System.out.println(sd.query13(p2, p1).toString());
+		System.out.println(sd.queryLog().toString());
 		
 		
 		
