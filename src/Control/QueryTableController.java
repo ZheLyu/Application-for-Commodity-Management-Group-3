@@ -190,7 +190,7 @@ public class QueryTableController {
 	 * @throws Exception
 	 */
 	public String process8() throws Exception {
-		String a=m.query8(id).toString();
+		String a=m.query8(id).toString().replace("[", "").replace("]", "").replace(",", "\t");
 		return a;
 	}
 	/**
@@ -226,7 +226,7 @@ public class QueryTableController {
 	}
 	
 	public String process12() throws SQLException {
-		String a = m.query12(name).toString();
+		String a = m.query12(name).toString().replace("[", "").replace("]", "").replace(",", "\t");
 		return a;
 
 	}

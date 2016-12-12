@@ -345,7 +345,7 @@ public class QueryTable {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Map<String, Object>> query8(String Stringid) throws Exception {
+	public List<List<String>>  query8(String Stringid) throws Exception {
 		int id = Integer.parseInt(Stringid);
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
@@ -358,7 +358,36 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add(" ");
+		l.add(map0.get("idBook").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("isbn").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("title").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("idBook").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("isbn").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("title").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+		
+		
+		
+		return result;
+		
 	}
 	/**
 	 * query idStationery, st_name , price, number of 
@@ -442,7 +471,7 @@ public class QueryTable {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<Map<String, Object>> query12(String title) throws SQLException {
+	public List<List<String>> query12(String title) throws SQLException {
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" select * from ");
@@ -454,7 +483,36 @@ public class QueryTable {
 		ResultSet rs = ptmt.executeQuery();
 		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add(" ");
+		l.add(map0.get("idBook").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("isbn").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("title").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("idBook").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("isbn").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("title").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+		
+		
+		
+		return result;
+		
 	}
 	public List<List<String>> query13(String price1, String price2) throws SQLException {
 		Connection conn = DButil.getConnection();

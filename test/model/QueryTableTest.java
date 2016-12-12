@@ -118,7 +118,7 @@ public class QueryTableTest extends TestCase {
 	}
 		
 		public void testQuery5() throws Exception {
-			fail("Not yet implemented");
+			//fail("Not yet implemented");
 			
 			String name = "shirt";
 			QueryTable sd = new QueryTable();
@@ -183,39 +183,11 @@ public class QueryTableTest extends TestCase {
 		String id = "2002";
 		
 		QueryTable sd = new QueryTable();
-		List<Map<String, Object>> list = sd.query8(id);
+		List<List<String>> list = sd.query8(id);
 		List<List<String>> result = new ArrayList<>(list.size());
-		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> map = list.get(i);
-			//map.toString();
-			//System.out.println(map);
-			List<String> l = new ArrayList<>();
-			l.add(map.get("idBook").toString().replace("[", " ").replace("]", " \t"));
-			l.add(map.get("title").toString().replace("[", " ").replace("]", " \t"));
-			l.add(map.get("isbn").toString().replace("[", " ").replace("]", " \t"));
-			l.add(map.get("price").toString().replace("[", " ").replace("]", " \t"));
-			l.add(map.get("number").toString().replace("[", " ").replace("]", " \t"));
-			l.add(map.get("name").toString().replace("[", " ").replace("]", " \t"));
-			result.add(l);
-			//l.add(map.g)
-			//result.set(i, map.get("idBook"));
-			List<Object> o =new ArrayList<>();
-			o.add(map.get("idBook"));
-//			System.out.print(map.get("idBook") + "\t");
-//			System.out.print(map.get("title") + "\t");
-//			System.out.print(map.get("isbn") + "\t");
-//			
-//			System.out.print(map.get("price") + "\t");
-//			System.out.print(map.get("number") + "\t");
-//			
-//			System.out.print(map.get("name") + "\t");
-			
-			//System.out.println(o);
-			
-			System.out.println();
-			//map.toString();
 		
-	}
+		
+	
 		System.out.println(result);
 	}
 	
@@ -295,20 +267,8 @@ public class QueryTableTest extends TestCase {
 		fail("Not yet implemented");
 		String title = "program";
 		QueryTable sd = new QueryTable();
-		List<Map<String, Object>> list = sd.query12(title);
-		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> map = list.get(i);
-			System.out.print(map.get("idBook") + "\t");
-			System.out.print(map.get("isbn") + "\t");
-			System.out.print(map.get("title") + "\t");
-			System.out.print(map.get("price") + "\t");
-			System.out.print(map.get("number") + "\t");
-			
-			System.out.print(map.get("name") + "\t");
-			//System.out.print(map.get("st_name"));
-			
-			System.out.println();
-		}
+		List<List<String>> list = sd.query12(title);
+		
 	}
 	
 	public void testQuery15() throws Exception {
