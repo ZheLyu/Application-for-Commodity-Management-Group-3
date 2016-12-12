@@ -37,5 +37,22 @@ public class BookModify {
 		System.out.println(id);
 		return id;
 	}
+	
+	public void addBook() throws Exception{
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		sb.append(" insert into book");
+		sb.append(" (isbn,title,genre,idBook)");
+		sb.append(" values(");
+		sb.append(" ?,?,?,?)");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		ptmt.setInt(1, book.getIsbn());
+		ptmt.setString(2, book.getB_name());
+		ptmt.setString(3, book.getGenre());
+		ptmt.setInt(4, book.getIdBook());
+		System.out.println(sb); 
+		ptmt.execute();
+		System.out.println("successfully add");
+	}
 
 }

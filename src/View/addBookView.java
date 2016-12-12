@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Control.BookController;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -16,13 +19,13 @@ import javax.swing.JLabel;
 public class addBookView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField textFieldBookName;
+	private JTextField textFieldISBN;
+	private JTextField textFieldNumber;
+	private JTextField textFieldPrice;
+	private JTextField textFieldGenre;
+	private JTextField textFieldSupplier;
+	private JTextField textFieldId;
 
 	/**
 	 * Launch the application.
@@ -45,16 +48,16 @@ public class addBookView extends JFrame {
 	 */
 	public addBookView() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 600,450);
+		setBounds(100, 100, 600,522);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(136, 88, 133, 24);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldBookName = new JTextField();
+		textFieldBookName.setBounds(136, 88, 133, 24);
+		contentPane.add(textFieldBookName);
+		textFieldBookName.setColumns(10);
 		
 		JLabel lblAddCloth = new JLabel("Add  Book");
 		lblAddCloth.setBounds(268, 13, 108, 18);
@@ -68,12 +71,30 @@ public class addBookView extends JFrame {
 		lblNumber.setBounds(50, 152, 72, 18);
 		contentPane.add(lblNumber);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(136, 149, 133, 24);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldISBN = new JTextField();
+		textFieldISBN.setBounds(136, 149, 133, 24);
+		contentPane.add(textFieldISBN);
+		textFieldISBN.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Add");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String name = textFieldBookName.getText();	
+				String genre = textFieldGenre.getText();
+				int ISBN = Integer.parseInt(textFieldISBN.getText());
+				int number = Integer.parseInt(textFieldNumber.getText());
+				int price = Integer.parseInt(textFieldPrice.getText());
+				int Id = Integer.parseInt(textFieldId.getText());
+				int sId = Integer.parseInt(textFieldSupplier.getText());
+
+				try {
+					new BookController().process_add(name, genre,ISBN, Id, price, number,sId);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnNewButton.setBounds(97, 363, 113, 27);
 		contentPane.add(btnNewButton);
 		
@@ -83,7 +104,7 @@ public class addBookView extends JFrame {
 
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				dispose();
 			}
 		});
 		
@@ -91,10 +112,10 @@ public class addBookView extends JFrame {
 		lblNumber_1.setBounds(50, 212, 72, 18);
 		contentPane.add(lblNumber_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(136, 209, 133, 24);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldNumber = new JTextField();
+		textFieldNumber.setBounds(136, 209, 133, 24);
+		contentPane.add(textFieldNumber);
+		textFieldNumber.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setBounds(50, 293, 25, -7);
@@ -104,37 +125,37 @@ public class addBookView extends JFrame {
 		lblPrice.setBounds(50, 267, 72, 18);
 		contentPane.add(lblPrice);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(135, 267, 134, 24);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textFieldPrice = new JTextField();
+		textFieldPrice.setBounds(135, 267, 134, 24);
+		contentPane.add(textFieldPrice);
+		textFieldPrice.setColumns(10);
 		
 		JLabel lblGnere = new JLabel("Genre");
 		lblGnere.setBounds(303, 91, 72, 18);
 		contentPane.add(lblGnere);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(400, 88, 153, 24);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textFieldGenre = new JTextField();
+		textFieldGenre.setBounds(400, 88, 153, 24);
+		contentPane.add(textFieldGenre);
+		textFieldGenre.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Supplier");
 		lblNewLabel_2.setBounds(303, 152, 72, 18);
 		contentPane.add(lblNewLabel_2);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(400, 149, 153, 24);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		textFieldSupplier = new JTextField();
+		textFieldSupplier.setBounds(400, 149, 153, 24);
+		contentPane.add(textFieldSupplier);
+		textFieldSupplier.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Supplier ID");
+		JLabel lblNewLabel_3 = new JLabel("ID");
 		lblNewLabel_3.setBounds(303, 212, 88, 18);
 		contentPane.add(lblNewLabel_3);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(400, 209, 153, 24);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
+		textFieldId = new JTextField();
+		textFieldId.setBounds(400, 209, 153, 24);
+		contentPane.add(textFieldId);
+		textFieldId.setColumns(10);
 		this.setVisible(true);
 	}
 }
