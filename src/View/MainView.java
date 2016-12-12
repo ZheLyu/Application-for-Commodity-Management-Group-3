@@ -26,7 +26,7 @@ import java.awt.Component;
 import java.awt.Toolkit;
 
 public class MainView extends JFrame {
-	JLabel lblNewLabel_1 = new JLabel("V 1.0.08");
+	JLabel lblNewLabel_1 = new JLabel("V 1.0.09");
 
 	private JPanel contentPane;
 
@@ -242,6 +242,22 @@ public class MainView extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton_9);
+		
+		JButton btnNewButton_10 = new JButton("Quick Storage");
+		btnNewButton_10.setBounds(636, 122, 169, 50);
+		btnNewButton_10.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				  try {
+						quickAddView show=new quickAddView();
+						show.setVisible(true);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			}
+			
+		});
+		contentPane.add(btnNewButton_10);
 		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblNewLabel, comboBox, btnNewButton, btnNewButton_1, btnNewButton_2, btnNewButton_3, lblNewLabel_1, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnNewButton_7}));
 	}
 }

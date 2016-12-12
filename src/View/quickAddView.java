@@ -1,5 +1,6 @@
 package View;
 
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -16,14 +17,15 @@ import model.modifyStationery;
 import javax.swing.JTextArea;
 import java.awt.Color;
 
-public class changeView extends JFrame {
+public class quickAddView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private String id;
-	private String price;
+	public String id;
+	public String number;
 	JTextArea textArea;
+
 	/**
 	 * Launch the application.
 	 */
@@ -31,7 +33,7 @@ public class changeView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					changeView frame = new changeView();
+					quickAddView frame = new quickAddView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,78 +45,78 @@ public class changeView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public changeView() {
+	public quickAddView() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Change Price");
-		lblNewLabel.setBounds(167, 13, 136, 36);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblCommodityId = new JLabel("Commodity ID");
-		lblCommodityId.setBounds(26, 82, 106, 18);
-		contentPane.add(lblCommodityId);
-		
-		textArea = new JTextArea();
+
+        textArea = new JTextArea();
 		textArea.setForeground(Color.RED);
-		textArea.setBounds(68, 45, 288, 24);
+		textArea.setBounds(50, 259, 378, 28);
 		contentPane.add(textArea);
+		JLabel lblDeleteCloth = new JLabel("Quick Add");
+		lblDeleteCloth.setBounds(230, 13, 166, 28);
+		contentPane.add(lblDeleteCloth);
+		
+		JLabel lblClothName = new JLabel("ID");
+		lblClothName.setBounds(50, 77, 135, 37);
+		contentPane.add(lblClothName);
+		
 		textField = new JTextField();
-		textField.setBounds(158, 79, 158, 24);
+		textField.setBounds(199, 81, 209, 28);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewPrice = new JLabel("New Price");
-		lblNewPrice.setBounds(26, 144, 72, 18);
-		contentPane.add(lblNewPrice);
+		JLabel lblNumber = new JLabel("Number");
+		lblNumber.setBounds(50, 202, 72, 18);
+		contentPane.add(lblNumber);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(158, 141, 158, 24);
+		textField_1.setBounds(199, 195, 209, 28);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnChange = new JButton("Change");
-		btnChange.setBounds(55, 200, 113, 27);
-		contentPane.add(btnChange);
-		btnChange.addActionListener(new ActionListener(){
+		JButton btnDelete = new JButton("Add");
+		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				id=textField.getText();
-				price = textField_1.getText();
-				if(id==null||Integer.parseInt(price)<0)
+				number=textField_1.getText();
+				if(id==null||Integer.parseInt(number)<0)
 					textArea.setText("Wrong, try again!");
 				else{
-				modifyStationery del= new modifyStationery();
-				del.modifyPrice(id, price);
+				System.out.println("*******");
+				modifyStationery del= new modifyStationery(id,number);
 				try {
-					del.addQuery7();
-					textArea.setText("Change Successful!");
+					del.addStationeryQuery6();
+					textArea.setText("Add Successful!");
 					
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 					textArea.setText("Wrong, try again!");
 				}
 				}
-			
 			}
-			
+				
 		});
+		btnDelete.setBounds(84, 318, 145, 27);
+		contentPane.add(btnDelete);
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.setBounds(345, 318, 135, 27);
+		contentPane.add(btnCancel);
+		
+		
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
-			});
-		
-		btnCancel.setBounds(243, 200, 113, 27);
-		contentPane.add(btnCancel);
-		
-		
+
+		});
 	}
 }
+
+

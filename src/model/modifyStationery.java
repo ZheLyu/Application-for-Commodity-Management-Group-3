@@ -20,7 +20,13 @@ public class modifyStationery {
 	private String supplier="";
 	private String sid="";
 	
-	
+	public modifyStationery(){
+		
+	}
+	public void modifyPrice(String id, String price){
+		this.id=id;
+		this.price=price;
+	}
 	public modifyStationery(String id, String number){
 		this.id=id;
 		this.number=number;
@@ -193,6 +199,50 @@ public class modifyStationery {
 		//sb.append("INSERT INTO merchandise");
 		//sb.append("(id,supplier_id,price,number) VALUES(3218,3231,25,300);");
 		sb.append("UPDATE merchandise SET number=number-"+number+" ");
+		sb.append("where id='"+id+"';");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		System.out.println(ptmt);
+		//ResultSet rs = ptmt.;
+		ptmt.execute();
+		//List<Map<String, Object>> list = convertList(rs);
+		//System.out.println(list.size());
+		//if(list.size()!=0){
+		//	return true;
+		//}
+		//else return false;
+		
+	}
+	public void addStationeryQuery6() throws Exception {
+		//List<Stationery> result = new ArrayList<Stationery>();
+		
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		System.out.println("..........");
+		//sb.append("INSERT INTO merchandise");
+		//sb.append("(id,supplier_id,price,number) VALUES(3218,3231,25,300);");
+		sb.append("UPDATE merchandise SET number=number+"+number+" ");
+		sb.append("where id='"+id+"';");
+		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+		System.out.println(ptmt);
+		//ResultSet rs = ptmt.;
+		ptmt.execute();
+		//List<Map<String, Object>> list = convertList(rs);
+		//System.out.println(list.size());
+		//if(list.size()!=0){
+		//	return true;
+		//}
+		//else return false;
+		
+	}
+	public void addQuery7() throws Exception {
+		//List<Stationery> result = new ArrayList<Stationery>();
+		
+		Connection conn = DButil.getConnection();
+		StringBuilder sb = new StringBuilder();
+		System.out.println("..........");
+		//sb.append("INSERT INTO merchandise");
+		//sb.append("(id,supplier_id,price,number) VALUES(3218,3231,25,300);");
+		sb.append("UPDATE merchandise SET price="+price+" ");
 		sb.append("where id='"+id+"';");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		System.out.println(ptmt);
