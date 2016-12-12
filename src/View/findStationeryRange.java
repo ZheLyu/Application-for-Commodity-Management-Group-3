@@ -82,9 +82,21 @@ public class findStationeryRange extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				QueryTableController qu= new QueryTableController();
-				qu.setPrice1(textField.getText());
-				qu.setPrice2(textField_1.getText());
+				String price1=textField.getText();
+				String price2=textField_1.getText();
+				if(price1.isEmpty()||price2.isEmpty()){
+					textArea.setText("Wrong input!");
+				}
+				else if(Integer.parseInt(price1)<=0||Integer.parseInt(price2)<=0){
+					textArea.setText("Wrong input!");
+					
+				}
+				else{
+				qu.setPrice1(price1);
+				qu.setPrice2(price2);
+				
 				try {
+					textArea.setText("");
 					textArea.append("\t********************************************************************************************************************\n");
 					textArea.append("\t id \t name \t  \t price  \t number  \n");
 					textArea.append("\t********************************************************************************************************************\n");
@@ -93,6 +105,7 @@ public class findStationeryRange extends JFrame {
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				}
 				}
 				
 			}

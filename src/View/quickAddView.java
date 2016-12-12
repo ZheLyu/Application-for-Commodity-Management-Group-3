@@ -14,7 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import model.modifyStationery;
+
 import javax.swing.JTextArea;
+
 import java.awt.Color;
 
 public class quickAddView extends JFrame {
@@ -85,9 +87,12 @@ public class quickAddView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				id=textField.getText();
 				number=textField_1.getText();
-				if(id==null||Integer.parseInt(number)<0)
+				if(id.isEmpty()||number.isEmpty())
 					textArea.setText("Wrong, try again!");
 				else{
+					if(Integer.parseInt(number)<=0||Integer.parseInt(id)<999||Integer.parseInt(id)>3999)
+						textArea.setText("Wrong, try again!");
+					else{
 				System.out.println("*******");
 				modifyStationery del= new modifyStationery(id,number);
 				try {
@@ -98,7 +103,7 @@ public class quickAddView extends JFrame {
 					e1.printStackTrace();
 					textArea.setText("Wrong, try again!");
 				}
-				}
+				}}
 			}
 				
 		});
