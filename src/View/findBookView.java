@@ -80,12 +80,18 @@ public class findBookView extends JFrame {
 				QueryTableController qu= new QueryTableController();
 				qu.setId(textField.getText());
 				qu.setName(textField_1.getText());
-			    if(textField.getText().isEmpty()){
+				if(textField_1.getText().isEmpty()&&textField.getText().isEmpty()){
+					textArea.setText("Wrong input!");
+				}
+				else if(textField.getText().isEmpty()){
 					try {
-
-
-						textArea.append(qu.process12());
-						   textArea.append("\n");
+						String re=qu.process12();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {textArea.append(re);
+						   textArea.append("\n");}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -93,19 +99,32 @@ public class findBookView extends JFrame {
 				}
 				else if(textField_1.getText().isEmpty()){
 					try {
-						textArea.append(qu.process8());
-						   textArea.append("\n");
+						String re=qu.process8();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {textArea.append(re);
+						   textArea.append("\n");}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
+				
 				else {
 					try {
-						textArea.append(qu.process8());
+						String re=qu.process8();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {textArea.append(re);
+						   textArea.append("\n");}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						
 					}
 				   textArea.append("\n");
 					

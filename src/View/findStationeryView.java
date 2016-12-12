@@ -82,33 +82,63 @@ public class findStationeryView extends JFrame {
 				QueryTableController qu= new QueryTableController();
 				qu.setId(textField.getText());
 				qu.setName(textField_1.getText());
-			    if(textField.getText().isEmpty()){
+				if(textField.getText().isEmpty()&&textField_1.getText().isEmpty()){
+					textArea.append("Wrong input, try again!");
+					textArea.append("\n");	
+					
+				}
+				else if(textField.getText().isEmpty()){
 					try {
-					   textArea.append(qu.process4());
-					   textArea.append("\n");
+						String re=qu.process4();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {
+							textArea.append(re);
+						    textArea.append("\n");}
+						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						textArea.append("Wrong input, try again!");
+						textArea.append("\n");	
 					}
 				}
 				else if(textField_1.getText().isEmpty()){
 					try {
-						System.out.println("aa");
-						
-						textArea.append(qu.process6());
-						textArea.append("\n");
+						String re=qu.process6();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {
+							textArea.append(re);
+						    textArea.append("\n");}
 						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						textArea.append("Wrong input, try again!");
+						textArea.append("\n");	
 					}
 				}
 				else{
 					try {
-						qu.process9();
-					} catch (SQLException e1) {
+						String re=qu.process9();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {
+							textArea.append(re);
+						    textArea.append("\n");}
+						
+					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						textArea.append("Wrong input, try again!");
+						textArea.append("\n");	
 					}
 				}
 			}

@@ -15,6 +15,8 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JTextArea;
 
 public class addBookView extends JFrame {
 
@@ -26,6 +28,7 @@ public class addBookView extends JFrame {
 	private JTextField textFieldGenre;
 	private JTextField textFieldSupplier;
 	private JTextField textFieldId;
+	JTextArea textArea;
 
 	/**
 	 * Launch the application.
@@ -50,6 +53,7 @@ public class addBookView extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600,522);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -58,7 +62,10 @@ public class addBookView extends JFrame {
 		textFieldBookName.setBounds(136, 88, 133, 24);
 		contentPane.add(textFieldBookName);
 		textFieldBookName.setColumns(10);
-		
+		textArea = new JTextArea();
+		textArea.setBounds(97, 312, 418, 38);
+		contentPane.add(textArea);
+		this.setVisible(true);
 		JLabel lblAddCloth = new JLabel("Add  Book");
 		lblAddCloth.setBounds(268, 13, 108, 18);
 		contentPane.add(lblAddCloth);
@@ -86,12 +93,19 @@ public class addBookView extends JFrame {
 				int price = Integer.parseInt(textFieldPrice.getText());
 				int Id = Integer.parseInt(textFieldId.getText());
 				int sId = Integer.parseInt(textFieldSupplier.getText());
-
+				if(number<=0||price<=0){
+					textArea.setText("Wrong, try again !");
+					
+				}
+				else{
 				try {
-					new BookController().process_add(name, genre,ISBN, Id, price, number,sId);
+					new BookController().process_add(name, genre,ISBN, price, number,Id,sId);
+					textArea.setText("Add Successful !");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					textArea.setText("Wrong, try again !");
+				}
 				}
 			}
 		});
@@ -156,6 +170,7 @@ public class addBookView extends JFrame {
 		textFieldId.setBounds(400, 209, 153, 24);
 		contentPane.add(textFieldId);
 		textFieldId.setColumns(10);
-		this.setVisible(true);
+		
+		
 	}
 }
