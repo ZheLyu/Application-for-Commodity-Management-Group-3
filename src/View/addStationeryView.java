@@ -154,10 +154,16 @@ public class addStationeryView extends JFrame {
 				sname=textField_4.getText();
 				sid=textField_5.getText();
 				
-				if(Integer.parseInt(number)<0||Integer.parseInt(price)<1||number==null||price==null||name==null){
+				if(number.isEmpty()||price.isEmpty()||name.isEmpty()){
+					System.out.println("----");
 					textArea.setText("Wrong input, try again!");
 				}
 				else{
+					if(Integer.parseInt(number)<=0||Integer.parseInt(price)<=0||Integer.parseInt(id)>3999||Integer.parseInt(id)<3000||Integer.parseInt(sid)>9999||Integer.parseInt(sid)<1000){
+					textArea.setText("Wrong input, try again!");
+					}
+					else{
+					System.out.println("*****");
 				modifyStationery add=new modifyStationery(name,id,number,price,sname,sid);
 				try {
 					add.addStationeryQuery1();
@@ -183,7 +189,7 @@ public class addStationeryView extends JFrame {
 					e1.printStackTrace();
 					textArea.setText("Wrong, try again!");
 				}
-				}
+				}}
 
 			}
 		});
