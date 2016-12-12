@@ -180,7 +180,7 @@ public class QueryTableController {
 	 * @throws Exception 
 	 */
 	public String process7() throws Exception {
-		String a=m.query7(id).toString();
+		String a=m.query7(id).toString().replace("[", "").replace("]", "").replace(",", "\t");
 		return a;
 	}
 	/**

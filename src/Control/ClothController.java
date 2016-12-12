@@ -24,7 +24,8 @@ public class ClothController {
 		m.setIdFactpry(supplierId);
 		m.setPrice(price);
 		m.setNumber(number);
-		new MerchandiseModify(m).addMerchandise();;
+		new MerchandiseModify(m).addMerchandise();
+		
 		new ClothModify(cloth).addCloth();		
 		return true;
 	}

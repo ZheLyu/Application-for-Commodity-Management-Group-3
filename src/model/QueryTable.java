@@ -291,7 +291,7 @@ public class QueryTable {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Map<String, Object>> query7(String Stringid) throws Exception {
+	public List<List<String>>  query7(String Stringid) throws Exception {
 		int id = Integer.parseInt(Stringid);
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
@@ -303,8 +303,40 @@ public class QueryTable {
 		ptmt.setInt(1,   id );
 		ResultSet rs = ptmt.executeQuery();
 		
+		
 		List<Map<String, Object>> list = convertList(rs);
-		return list;
+		List<List<String>> result = new ArrayList<>();
+		Map<String, Object> map0 = list.get(0);
+		List<String> l = new ArrayList<>();
+		l.add(" ");
+		l.add(map0.get("idCloth").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("color").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("type").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("size").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add(map0.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+		l.add("\n");
+		result.add(l);
+		for(int i = 1; i < list.size(); i++) {
+			Map<String, Object> map = list.get(i);
+			List<String> o = new ArrayList<>();
+			o.add(map.get("idCloth").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("color").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("type").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("size").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			
+			o.add(map.get("price").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("number").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.get("name").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add("\n");
+			result.add(o);
+		}
+		
+		
+		
+		return result;
+		
 		
 	}
 	/**
