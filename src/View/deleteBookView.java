@@ -19,8 +19,8 @@ import javax.swing.JButton;
 public class deleteBookView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textFieldBookName;
+	private JTextField textFieldNumber;
 	private JButton btnDelete;
 	private JButton btnCancel;
 
@@ -59,25 +59,25 @@ public class deleteBookView extends JFrame {
 		lblClothName.setBounds(50, 77, 119, 37);
 		contentPane.add(lblClothName);
 		
-		textField = new JTextField();
-		textField.setBounds(199, 81, 209, 28);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldBookName = new JTextField();
+		textFieldBookName.setBounds(199, 81, 209, 28);
+		contentPane.add(textFieldBookName);
+		textFieldBookName.setColumns(10);
 		
 		JLabel lblNumber = new JLabel("Number");
 		lblNumber.setBounds(50, 202, 72, 18);
 		contentPane.add(lblNumber);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(199, 195, 209, 28);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldNumber = new JTextField();
+		textFieldNumber.setBounds(199, 195, 209, 28);
+		contentPane.add(textFieldNumber);
+		textFieldNumber.setColumns(10);
 		
 		btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String name = textField.getText();
-				int number = Integer.parseInt(textField_1.getText());
+				String name = textFieldBookName.getText();
+				int number = Integer.parseInt(textFieldNumber.getText());
 				try {
 					new BookController().process_delNumber(name, number);
 				} catch (SQLException e) {

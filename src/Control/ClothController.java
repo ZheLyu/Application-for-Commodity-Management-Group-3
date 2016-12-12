@@ -1,5 +1,8 @@
 package Control;
 
+import java.sql.SQLException;
+
+import model.BookModify;
 import model.Cloth;
 import model.ClothModify;
 import model.MerchandiseModify;
@@ -34,7 +37,10 @@ public class ClothController {
 		return true;
 	}
 	
-	public Boolean  process_del(){
+	public Boolean process_delNumber(String name, int number) throws SQLException{
+		int id = new ClothModify(cloth).delClothNumber(name);
+		new MerchandiseModify(m).delMerchandiseNumber(id, number);
+		
 		return true;
 	}
 
