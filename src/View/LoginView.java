@@ -53,7 +53,7 @@ public class LoginView extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -72,16 +72,17 @@ public class LoginView extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Password");
 		lblNewLabel_2.setBounds(40, 150, 72, 18);
 		contentPane.add(lblNewLabel_2);
-	    textArea = new JTextArea();
-	    textArea.setForeground(Color.RED);
-		textArea.setBackground(Color.WHITE);
-		textArea.setBounds(69, 40, 281, 35);
-		contentPane.add(textArea);
+	   
+		
 		textField = new JTextField();
 		textField.setBounds(159, 84, 147, 24);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+		textArea = new JTextArea();
+	    textArea.setForeground(Color.RED);
+		textArea.setBackground(Color.WHITE);
+		textArea.setBounds(69, 40, 281, 35);
+		contentPane.add(textArea);
 		textField_1 = new JTextField();
 		textField_1.setBounds(159, 147, 147, 24);
 		contentPane.add(textField_1);
@@ -104,7 +105,7 @@ public class LoginView extends JFrame {
 					if(mo.query()==true){
 						MainView m= new MainView();
 						m.setVisible(true);
-					
+						dispose();
 					}
 					else{
 					

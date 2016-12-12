@@ -4,10 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Control.BookController;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -68,6 +72,18 @@ public class deleteClothView extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String name = textField.getText();
+				int number = Integer.parseInt(textField_1.getText());
+				try {
+					new BookController().process_delNumber(name, number);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		btnDelete.setBounds(79, 318, 113, 27);
 		contentPane.add(btnDelete);
 		

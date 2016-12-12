@@ -86,32 +86,63 @@ public class findClothView extends JFrame {
 				QueryTableController qu= new QueryTableController();
 				qu.setId(textField.getText());
 				qu.setName(textField_1.getText());
-			    if(textField.getText().isEmpty()){
+				if(textField.getText().isEmpty()&&textField_1.getText().isEmpty()){
+					textArea.append("Wrong input, try again!");
+					textArea.append("\n");	
+					
+				}
+				else if(textField.getText().isEmpty()){
 					try {
-						textArea.append(qu.process5());
-						textArea.append("\n");
+						String re=qu.process5();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {
+							textArea.append(re);
+						    textArea.append("\n");}
 						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						textArea.append("Wrong input, try again!");
+						textArea.append("\n");	
 					}
 				}
 				else if(textField_1.getText().isEmpty()){
 					try {
-						textArea.append(qu.process7());
-						textArea.append("\n");
+						String re=qu.process7();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {
+							textArea.append(re);
+						    textArea.append("\n");}
+						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						textArea.append("Wrong input, try again!");
+						textArea.append("\n");	
 					}
 				}
 				else{
 					try {
-						textArea.append(qu.process7());
-						textArea.append("\n");
+						String re=qu.process7();
+						if(re=="[]"){
+							textArea.append("Not exist, please try again!");
+						    textArea.append("\n");	
+						}
+						else {
+							textArea.append(re);
+						    textArea.append("\n");}
+						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						textArea.append("Wrong input, try again!");
+						textArea.append("\n");	
 					}
 				}
 			}

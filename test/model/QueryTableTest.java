@@ -174,26 +174,8 @@ public class QueryTableTest extends TestCase {
 		String id = "1002";
 		
 		QueryTable sd = new QueryTable();
-		List<Map<String, Object>> list = sd.query7(id);
-		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> map = list.get(i);
-			//map.toString();
-			//System.out.println(map);
-			System.out.print(map.get("idCloth") + "\t");
-			System.out.print(map.get("type") + "\t");
-			System.out.print(map.get("color") + "\t");
-			System.out.print(map.get("size") + "\t");
-			System.out.print(map.get("price") + "\t");
-			System.out.print(map.get("number") + "\t");
-			
-			System.out.print(map.get("name") + "\t");
-			
-			
-			System.out.println();
-			//map.toString();
-		
-	}
-		
+		List<List<String>> list = sd.query7(id);
+	
 	}
 	
 	public void testQuery8() throws Exception {
