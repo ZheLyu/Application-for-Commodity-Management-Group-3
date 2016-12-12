@@ -13,6 +13,11 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 
+import model.modifyStationery;
+
+import javax.swing.JTextArea;
+import java.awt.Color;
+
 public class addStationeryView extends JFrame {
 
 	private JPanel contentPane;
@@ -22,6 +27,13 @@ public class addStationeryView extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	JTextArea textArea;
+	public String name;
+	public String id;
+	public String price;
+	public String number;
+	public String sid;
+	public String sname;
 
 	/**
 	 * Launch the application.
@@ -46,6 +58,7 @@ public class addStationeryView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600,450);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -72,9 +85,7 @@ public class addStationeryView extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Add");
-		btnNewButton.setBounds(89, 344, 113, 27);
-		contentPane.add(btnNewButton);
+		
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(367, 344, 113, 27);
@@ -126,5 +137,55 @@ public class addStationeryView extends JFrame {
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		this.setVisible(true);
+		JButton btnNewButton = new JButton("Add");
+		btnNewButton.setBounds(89, 344, 113, 27);
+		contentPane.add(btnNewButton);
+		
+		textArea = new JTextArea();
+		textArea.setForeground(Color.RED);
+		textArea.setBounds(71, 304, 385, 27);
+		contentPane.add(textArea);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				name=textField.getText();
+				id=textField_1.getText();
+				number=textField_2.getText();
+				price=textField_3.getText();
+				sname=textField_4.getText();
+				sid=textField_5.getText();
+				
+				if(Integer.parseInt(number)<0||Integer.parseInt(price)<1||number==null||price==null||name==null){
+					textArea.setText("Wrong input, try again!");
+				}
+				else{
+				modifyStationery add=new modifyStationery(name,id,number,price,sname,sid);
+				try {
+					add.addStationeryQuery1();
+					
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					textArea.setText("Wrong, try again!");
+				}
+				try {
+					add.addStationeryQuery2();
+					
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					textArea.setText("Wrong, try again!");
+				}
+				try {
+					add.addStationeryQuery3();
+					textArea.setText("Add Successful!");
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					textArea.setText("Wrong, try again!");
+				}
+				}
+
+			}
+		});
 	}
 }

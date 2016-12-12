@@ -17,8 +17,10 @@ import javax.swing.JButton;
 
 
 
+
 import model.LoginModel;
 import model.addAdmin;
+//import model.addStationery;
 
 import javax.swing.JTextArea;
 
@@ -99,10 +101,13 @@ public class addAdminView extends JFrame {
 				
 				add.setAd(ad);
 				add.setPassword(password);
-				textArea.setText("Add Successful!");
-			
+				
+				//addStationery sta= new addStationery();
 				try {
+					//sta.addStationeryQuery1();
+					//sta.addStationeryQuery2();
 					add.query();
+					textArea.setText("Add Successful!");
 				
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -119,7 +124,7 @@ public class addAdminView extends JFrame {
 	
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				dispose();
 			}
 			
 		});

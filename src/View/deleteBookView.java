@@ -94,7 +94,7 @@ public class deleteBookView extends JFrame {
 		contentPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				dispose();
 			}
 
 			
