@@ -258,6 +258,22 @@ public class MainView extends JFrame {
 			
 		});
 		contentPane.add(btnNewButton_10);
+		
+		JButton btnNewButton_11 = new JButton("Show Log");
+		btnNewButton_11.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				  try {
+						quickAddView show=new quickAddView();
+						show.setVisible(true);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			}
+			
+		});
+		btnNewButton_11.setBounds(636, 223, 169, 50);
+		contentPane.add(btnNewButton_11);
 		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblNewLabel, comboBox, btnNewButton, btnNewButton_1, btnNewButton_2, btnNewButton_3, lblNewLabel_1, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnNewButton_7}));
 	}
 }

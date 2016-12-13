@@ -8,8 +8,10 @@ import View.MainView;
 
 public class DButil {
 	
+
 	static String nameOfDb = "mydb"; 
 	static String password = "wodemima" ;
+
 	
 	private static final String PATH = "com.mysql.jdbc.DBUtil";
 	private static final String URL = "jdbc:mysql://127.0.0.1:3306/" + nameOfDb +"?autoReconnect=true&useSSL=false";
