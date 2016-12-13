@@ -98,6 +98,7 @@ public class LoginView extends JFrame {
 				//addAdmin add=new addAdmin();
 				mo.setAd(ad);
 				mo.setPassword(password);
+				System.out.println("！！！！！！！！！！！！！！！！！！！！！！");
 				//add.setAd(ad);
 				//add.setPassword(password);
 				try {

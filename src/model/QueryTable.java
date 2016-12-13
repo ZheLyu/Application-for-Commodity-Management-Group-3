@@ -634,25 +634,15 @@ public class QueryTable {
 		List<Map<String, Object>> list = convertList(rs);
 		System.out.println(list.toString());
 		List<List<String>> result = new ArrayList<>();
-		Map<String, Object> map0 = list.get(0);
-		List<String> l = new ArrayList<>();
-		l.add("");
-		l.add(map0.get("log_id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-		l.add(map0.get("log_time").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-		l.add(map0.get("log_type").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-		l.add(map0.get("log_content").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-		//l.add(map0.get("merchandise_id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-		l.add("\n");
-		result.add(l);
-		for(int i = 1; i < list.size(); i++) {
+
+		for(int i = 0; i < list.size(); i++) {
 			Map<String, Object> map = list.get(i);
+			
 			List<String> o = new ArrayList<>();
-			o.add(map.get("log_id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-			o.add(map.get("log_time").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-			o.add(map.get("log_type").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-			o.add(map.get("log_content").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
-		//	l.add(map.get("merchandise_id").toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+			o.add(map.toString().replace("[", " ").replace("]", "").replace(",", "\t"));
+
 			o.add("\n");
+			
 			result.add(o);
 		}
 

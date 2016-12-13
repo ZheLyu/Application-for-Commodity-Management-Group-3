@@ -19,7 +19,9 @@ public class ClothController {
 	}
 	
 	public Boolean process_add(String color, String type, String size, int IdCloth, int supplierId, int price, int number) throws Exception{
-		cloth.setColor(color);
+
+		try{
+					cloth.setColor(color);
 		cloth.setType(type);
 		cloth.setSize(size);
 		cloth.setIdCloth(IdCloth);
@@ -29,7 +31,12 @@ public class ClothController {
 		m.setNumber(number);
 		new MerchandiseModify(m).addMerchandise();
 		
-		new ClothModify(cloth).addCloth();		
+		new ClothModify(cloth).addCloth();	
+		}
+		catch(Exception e){
+			System.out.println("Illegael add");
+			new MerchandiseModify(m).delMerchandise();
+		}
 		return true;
 	}
 	
@@ -37,8 +44,8 @@ public class ClothController {
 		return true;
 	}
 	
-	public Boolean process_delNumber(String name, int number) throws SQLException{
-		int id = new ClothModify(cloth).delClothNumber(name);
+	public Boolean process_delNumber(String name,String size,String color, int number) throws SQLException{
+		int id = new ClothModify(cloth).delClothNumber(name,size,color);
 		new MerchandiseModify(m).delMerchandiseNumber(id, number);
 		
 		return true;

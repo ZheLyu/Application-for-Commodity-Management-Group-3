@@ -245,6 +245,14 @@ public class QueryTableController {
 		return a;
 
 	}
+	public String processLog() throws Exception {
+
+	    String a=m.queryLog().toString().replace("[", "").replace("]", "");
+
+	    return a;
+	    
+	    
+	}
 	
 
 }

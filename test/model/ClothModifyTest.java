@@ -27,10 +27,7 @@ public class ClothModifyTest extends TestCase {
 		testadd.addCloth();
 	}
 	
-//	public void testProcessUpdate() throws SQLException{
-//		ClothModify testupdate = new ClothModify(cloth);
-//		testupdate.updateCloth();
-//	}
+
 
 
 	

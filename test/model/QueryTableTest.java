@@ -278,7 +278,7 @@ public class QueryTableTest extends TestCase {
 		QueryTable sd = new QueryTable();
 		
 		//System.out.println(sd.query13(p2, p1).toString());
-		System.out.println(sd.queryLog().toString());
+		System.out.println(sd.queryLog());
 		
 		
 		

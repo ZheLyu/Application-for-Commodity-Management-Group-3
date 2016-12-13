@@ -183,7 +183,7 @@ public class addStationeryView extends JFrame {
 				}
 				try {
 					add.addStationeryQuery3();
-					textArea.setText("Add Successful!");
+					//textArea.setText("Add Successful!");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
