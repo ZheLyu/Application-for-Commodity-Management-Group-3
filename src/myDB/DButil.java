@@ -8,7 +8,7 @@ import View.MainView;
 
 public class DButil {
 	
-	static String nameOfDb = "mydb"; 
+	static String nameOfDb = "dbproject"; 
 	static String password = "lz19931214" ;
 	
 	private static final String PATH = "com.mysql.jdbc.DBUtil";
