@@ -89,15 +89,16 @@ public class ClothModify {
 
 
 
-	public int delClothNumber(String title) throws SQLException{
+	public int delClothNumber(String name, String size,String color) throws SQLException{
 		Connection conn = DButil.getConnection();
 		StringBuilder sb = new StringBuilder();
-		sb.append(" select idBook from ");
+		sb.append(" select idCloth from ");
 		sb.append(" cloth");
-		sb.append(" where title=?");
+		sb.append(" where type=? and size=? and color=?");
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
-		ptmt.setString(1, title);
-		System.out.println(title);
+		ptmt.setString(1, name);
+		ptmt.setString(2, size);
+		ptmt.setString(3, color);
 		ResultSet rs = ptmt.executeQuery();
 		rs.next();
 		int id = rs.getInt(1);

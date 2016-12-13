@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Control.BookController;
+import Control.ClothController;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -21,6 +21,8 @@ public class deleteClothView extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textFieldSize;
+	private JTextField textFieldColor;
 
 	/**
 	 * Launch the application.
@@ -63,11 +65,11 @@ public class deleteClothView extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNumber = new JLabel("Number");
-		lblNumber.setBounds(50, 202, 72, 18);
+		lblNumber.setBounds(50, 237, 72, 18);
 		contentPane.add(lblNumber);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(199, 195, 209, 28);
+		textField_1.setBounds(199, 227, 209, 28);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -75,9 +77,11 @@ public class deleteClothView extends JFrame {
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String name = textField.getText();
+				String size = textFieldSize.getText();
+				String color = textFieldColor.getText();
 				int number = Integer.parseInt(textField_1.getText());
 				try {
-					new BookController().process_delNumber(name, number);
+					new ClothController().process_delNumber(name,size,color,number);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -90,6 +94,24 @@ public class deleteClothView extends JFrame {
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(295, 318, 113, 27);
 		contentPane.add(btnCancel);
+		
+		textFieldSize = new JTextField();
+		textFieldSize.setBounds(199, 132, 209, 28);
+		contentPane.add(textFieldSize);
+		textFieldSize.setColumns(10);
+		
+		textFieldColor = new JTextField();
+		textFieldColor.setBounds(199, 185, 209, 26);
+		contentPane.add(textFieldColor);
+		textFieldColor.setColumns(10);
+		
+		JLabel lblSize = new JLabel("Size");
+		lblSize.setBounds(50, 130, 115, 33);
+		contentPane.add(lblSize);
+		
+		JLabel lblCloar = new JLabel("Cloar");
+		lblCloar.setBounds(50, 182, 115, 33);
+		contentPane.add(lblCloar);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
