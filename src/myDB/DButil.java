@@ -8,8 +8,13 @@ import View.MainView;
 
 public class DButil {
 	
+<<<<<<< HEAD
 	static String nameOfDb = "dbproject"; 
 	static String password = "lz19931214" ;
+=======
+	static String nameOfDb = "mydb"; 
+	static String password = "moonwang1204" ;
+>>>>>>> branch 'master' of https://github.com/ZheLyu/Application-for-Commodity-Management-Group-3.git
 	
 	private static final String PATH = "com.mysql.jdbc.DBUtil";
 	private static final String URL = "jdbc:mysql://127.0.0.1:3306/" + nameOfDb +"?autoReconnect=true&useSSL=false";
