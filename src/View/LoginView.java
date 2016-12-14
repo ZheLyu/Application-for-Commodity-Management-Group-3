@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -29,7 +30,7 @@ public class LoginView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField textField_1;
 	private JTextArea textArea;
     public String password;
     public String ad;
@@ -83,7 +84,7 @@ public class LoginView extends JFrame {
 		textArea.setBackground(Color.WHITE);
 		textArea.setBounds(69, 40, 281, 35);
 		contentPane.add(textArea);
-		textField_1 = new JTextField();
+		textField_1 = new JPasswordField();
 		textField_1.setBounds(159, 147, 147, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);

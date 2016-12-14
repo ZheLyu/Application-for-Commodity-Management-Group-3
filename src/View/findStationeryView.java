@@ -149,7 +149,7 @@ public class findStationeryView extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				dispose();
 			}
 		});
 		btnNewButton_1.setBounds(428, 123, 113, 27);

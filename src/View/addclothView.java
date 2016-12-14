@@ -61,6 +61,7 @@ public class addclothView extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 650,500);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setToolTipText("Size");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -105,20 +106,22 @@ public class addclothView extends JFrame {
 			}*/
 
 			public void actionPerformed(ActionEvent e){
-				String type = textFieldClothName.getText();
-				String size = comboBoxSize.getSelectedItem().toString();
-				String color = comboBoxColor.getSelectedItem().toString();
+
 				//String size = "XXSmall";
 				//String color = "red";
 				
-				int IdCloth = Integer.parseInt(textFieldClothId.getText());
+
+
+				try {				String type = textFieldClothName.getText();
+				String size = comboBoxSize.getSelectedItem().toString();
+				String color = comboBoxColor.getSelectedItem().toString();
+					int IdCloth = Integer.parseInt(textFieldClothId.getText());
 				int number = Integer.parseInt(textFieldNumber.getText());
 				int price = Integer.parseInt(textFieldPrice.getText());
 				int supplierId = Integer.parseInt(textFieldSupplierId.getText());
-
-				try {
 					new ClothController().process_add(color, type, size, IdCloth, supplierId, price, number);
 					textArea.setText("Successfully Add");
+					
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -204,7 +207,7 @@ public class addclothView extends JFrame {
 		contentPane.add(comboBoxColor);
 		
 		textArea = new JTextArea();
-		textArea.setBackground(SystemColor.control);
+		textArea.setBackground(Color.WHITE);
 		textArea.setForeground(Color.RED);
 		textArea.setBounds(233, 375, 204, 37);
 		contentPane.add(textArea);
