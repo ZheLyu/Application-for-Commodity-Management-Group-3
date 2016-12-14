@@ -20,34 +20,24 @@ public class ClothController {
 	
 	public Boolean process_add(String color, String type, String size, int IdCloth, int supplierId, int price, int number) throws Exception{
 
-//		try{
-//					cloth.setColor(color);
-//		cloth.setType(type);
-//		cloth.setSize(size);
-//		cloth.setIdCloth(IdCloth);
-//		m.setMerchansidse(IdCloth);
-//		m.setIdFactpry(supplierId);
-//		m.setPrice(price);
-//		m.setNumber(number);
-//		new MerchandiseModify(m).addMerchandise();
-//		
-//		new ClothModify(cloth).addCloth();	
-//		}
-//		catch(Exception e){
-//			System.out.println("Illegael add");
-//			new MerchandiseModify(m).delMerchandise();
-//		}
-		cloth.setColor(color);
-cloth.setType(type);
-cloth.setSize(size);
-cloth.setIdCloth(IdCloth);
-m.setMerchansidse(IdCloth);
-m.setIdFactpry(supplierId);
-m.setPrice(price);
-m.setNumber(number);
-new MerchandiseModify(m).addMerchandise();
+		try{
+					cloth.setColor(color);
+		cloth.setType(type);
+		cloth.setSize(size);
+		cloth.setIdCloth(IdCloth);
+		m.setMerchansidse(IdCloth);
+		m.setIdFactpry(supplierId);
+		m.setPrice(price);
+		m.setNumber(number);
+		new MerchandiseModify(m).addMerchandise();
+		
+		new ClothModify(cloth).addCloth();	
+		}
+		catch(Exception e){
+			System.out.println("Illegael add");
+			new MerchandiseModify(m).delMerchandise();
+		}
 
-new ClothModify(cloth).addCloth();	
 		return true;
 	}
 	
