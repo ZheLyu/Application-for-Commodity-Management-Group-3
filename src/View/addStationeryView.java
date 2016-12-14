@@ -175,6 +175,7 @@ public class addStationeryView extends JFrame {
 				}
 				try {
 					add.addStationeryQuery2();
+					textArea.setText("Add Successful!");
 					
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
