@@ -25,21 +25,7 @@ public class findStationeryRange extends JFrame {
 	private JTextField textField;
 	private JTextArea textArea;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					findStationeryRange frame = new findStationeryRange();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.

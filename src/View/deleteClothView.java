@@ -24,22 +24,7 @@ public class deleteClothView extends JFrame {
 	private JTextField textFieldSize;
 	private JTextField textFieldColor;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					deleteClothView frame = new deleteClothView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */

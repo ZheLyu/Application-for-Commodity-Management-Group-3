@@ -36,21 +36,7 @@ public class addAdminView extends JFrame {
 	private JTextArea textArea;
     public String password;
     public String ad;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					addAdminView  frame= new addAdminView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.

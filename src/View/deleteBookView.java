@@ -24,22 +24,7 @@ public class deleteBookView extends JFrame {
 	private JButton btnDelete;
 	private JButton btnCancel;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					deleteBookView frame = new deleteBookView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */

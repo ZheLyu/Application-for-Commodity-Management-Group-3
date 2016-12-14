@@ -16,21 +16,7 @@ public class showLog extends JFrame {
 
 	private JPanel contentPane;
 	JTextArea textArea ;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					showLog frame = new showLog();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
