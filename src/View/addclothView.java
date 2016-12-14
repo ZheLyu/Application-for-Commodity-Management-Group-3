@@ -30,8 +30,8 @@ public class addclothView extends JFrame {
 	private JTextField textFieldPrice;
 	private JTextField textFieldSupplier;
 	private JTextField textFieldSupplierId;
-	//private JComboBox comboBoxSize;
-	//private JComboBox comboBoxColor;
+	private JComboBox comboBoxSize;
+	private JComboBox comboBoxColor;
 
 
 	/**
@@ -102,10 +102,10 @@ public class addclothView extends JFrame {
 
 			public void actionPerformed(ActionEvent e){
 				String type = textFieldClothName.getText();
-				//String size = comboBoxSize.getSelectedItem().toString();
-				//String color = comboBoxColor.getSelectedItem().toString();
-				String size = "XXSmall";
-				String color = "red";
+				String size = comboBoxSize.getSelectedItem().toString();
+				String color = comboBoxColor.getSelectedItem().toString();
+				//String size = "XXSmall";
+				//String color = "red";
 				
 				int IdCloth = Integer.parseInt(textFieldClothId.getText());
 				int number = Integer.parseInt(textFieldNumber.getText());
@@ -155,7 +155,7 @@ public class addclothView extends JFrame {
 		contentPane.add(textFieldPrice);
 		textFieldPrice.setColumns(10);
 		
-		JComboBox comboBoxSize = new JComboBox();
+		comboBoxSize = new JComboBox();
 		comboBoxSize.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -192,10 +192,10 @@ public class addclothView extends JFrame {
 		contentPane.add(textFieldSupplierId);
 		textFieldSupplierId.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"WHITE", "BLUE", "BLACK", "RED", "GREEN", "GRAY", "YELLOW"}));
-		comboBox.setBounds(488, 133, 80, 24);
-		contentPane.add(comboBox);
+		comboBoxColor = new JComboBox();
+		comboBoxColor.setModel(new DefaultComboBoxModel(new String[] {"WHITE", "BLUE", "BLACK", "RED", "GREEN", "GRAY", "YELLOW"}));
+		comboBoxColor.setBounds(488, 133, 80, 24);
+		contentPane.add(comboBoxColor);
 		this.setVisible(true);
 	}
 }
