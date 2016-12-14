@@ -263,7 +263,7 @@ public class MainView extends JFrame {
 		btnNewButton_11.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				  try {
-						quickAddView show=new quickAddView();
+						showLog show=new showLog();
 						show.setVisible(true);
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
