@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,8 @@ import javax.swing.DefaultComboBoxModel;
 
 import Control.ClothController;
 import Control.QueryTableController;
+import javax.swing.JTextArea;
+import java.awt.SystemColor;
 
 public class addclothView extends JFrame {
 
@@ -32,6 +35,7 @@ public class addclothView extends JFrame {
 	private JTextField textFieldSupplierId;
 	private JComboBox comboBoxSize;
 	private JComboBox comboBoxColor;
+	JTextArea textArea;
 
 
 	/**
@@ -114,9 +118,11 @@ public class addclothView extends JFrame {
 
 				try {
 					new ClothController().process_add(color, type, size, IdCloth, supplierId, price, number);
+					textArea.setText("Successfully Add");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					textArea.setText("Illegal Add!");
 				}
 			}
 			
@@ -196,6 +202,12 @@ public class addclothView extends JFrame {
 		comboBoxColor.setModel(new DefaultComboBoxModel(new String[] {"WHITE", "BLUE", "BLACK", "RED", "GREEN", "GRAY", "YELLOW"}));
 		comboBoxColor.setBounds(488, 133, 80, 24);
 		contentPane.add(comboBoxColor);
+		
+		textArea = new JTextArea();
+		textArea.setBackground(SystemColor.control);
+		textArea.setForeground(Color.RED);
+		textArea.setBounds(233, 375, 204, 37);
+		contentPane.add(textArea);
 		this.setVisible(true);
 	}
 }

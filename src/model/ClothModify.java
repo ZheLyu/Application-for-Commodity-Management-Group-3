@@ -41,6 +41,7 @@ public class ClothModify {
 		PreparedStatement ptmt = conn.prepareStatement(sb.toString());
 		ptmt.setString(1, c.getType());
 		System.out.println(c.getSize());
+		System.out.println(c.getColor());
 		ptmt.setString(2, c.getSize());
 		ptmt.setString(3, c.getColor());
 		ptmt.setInt(4, c.getIdCloth());
